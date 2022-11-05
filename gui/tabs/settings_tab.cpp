@@ -43,6 +43,13 @@ namespace SettingsTab {
 #endif
 			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
 
+			if (ImGui::Button("Unlock All Steam Achievements")) {
+				AchievementHelpers* ah = AchievementHelpers_get_singleton(NULL);
+				for (const char* achievement : steamAchievements) {
+					AchievementHelpers_Unlock(ah, convert_to_string(std::string(achievement)), false, NULL);
+				}
+			}
+
 			ImGui::EndTabItem();
 		}
 	}

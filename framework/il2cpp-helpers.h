@@ -13,6 +13,32 @@ void output_class_methods(Il2CppClass* klass);
 void output_assembly_methods(const Il2CppAssembly* assembly);
 bool cctor_finished(Il2CppClass* klass);
 
+namespace app {
+	namespace il2cpp {
+		template<typename E>
+		class Array {
+		public:
+			using iterator = decltype(&E::vector[0]);
+			constexpr Array(E* arr) : _Ptr(arr) {}
+			constexpr size_t size() const {
+				if (!_Ptr) return 0;
+				if (_Ptr->bounds)
+					return _Ptr->bounds->length;
+				return _Ptr->max_length;
+			}
+			constexpr iterator begin() const {
+				if (!_Ptr) return nullptr;
+				return _Ptr->vector;
+			}
+			constexpr iterator end() const { return begin() + size(); }
+			constexpr auto& operator[](const size_t _Pos) const { return begin()[_Pos]; }
+			constexpr E* get() const { return _Ptr; }
+		protected:
+			E* _Ptr;
+		};
+	}
+}
+
 class ScopedThreadAttacher {
 public:
 	ScopedThreadAttacher();

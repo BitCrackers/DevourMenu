@@ -4,10 +4,11 @@
 #include "tabs/game_tab.h"
 #include "tabs/settings_tab.h"
 #include "state.hpp"
+#include "gui-helpers.hpp"
 
 namespace Menu {
 	void Init() {
-		ImGui::SetNextWindowSize(ImVec2(520 * State.dpiScale, 330 * State.dpiScale), ImGuiCond_None);
+		ImGui::SetNextWindowSize(ImVec2(520, 330 ) * State.dpiScale, ImGuiCond_None);
 		ImGui::SetNextWindowBgAlpha(1.F);
 	}
 

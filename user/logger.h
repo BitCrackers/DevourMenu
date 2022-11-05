@@ -20,7 +20,7 @@ private:
 	std::filesystem::path filePath;
 	std::string currentVerbosity;
 };
-#define _log_source (std::string() + "dm - " + __func__)
+#define _log_source (std::string() + "DEVOUR_MENU - " + __func__)
 
 #define LOG_INFO(x) DLog.Info(_log_source, x)
 #define LOG_DEBUG(x) DLog.Debug(_log_source, x)

@@ -45,3 +45,10 @@ DO_APP_FUNC(void, Debug_LogWarning, (Object* message, MethodInfo* method), "Unit
 DO_APP_FUNC(String*, Object_ToString, (Object* __this, MethodInfo* method), "mscorlib, System.String System.Object::ToString()");
 
 DO_APP_FUNC(bool, Object_1_op_Implicit, (Object_1* exists, MethodInfo* method), "UnityEngine.CoreModule, System.Boolean UnityEngine.Object::op_Implicit(UnityEngine.Object)");
+
+// DEVOUR
+DO_APP_FUNC(void, NolanBehaviour_StartCarry, (NolanBehaviour* __this, String* objectName, MethodInfo* method), "Assembly-CSharp, System.Void NolanBehaviour::StartCarry(System.String)");
+DO_APP_FUNC(void, NolanBehaviour_PlopObject, (NolanBehaviour* __this, MethodInfo* method), "Assembly-CSharp, System.Void NolanBehaviour::PlopObject()");
+
+DO_APP_FUNC(AchievementHelpers*, AchievementHelpers_get_singleton, (MethodInfo* method), "Assembly-CSharp, AchievementHelpers AchievementHelpers::get_singleton()");
+DO_APP_FUNC(void, AchievementHelpers_Unlock, (AchievementHelpers* __this, String* achievementName, bool skipStoreStats, MethodInfo* method), "Assembly-CSharp, System.Void AchievementHelpers::Unlock(System.String, System.Boolean)");
