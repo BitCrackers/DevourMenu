@@ -4,4 +4,8 @@
 
 namespace Game {
 	SessionHelpers** pSessionHelpers = nullptr;
+	AchievementHelpers** pAchievementHelpers = nullptr;
+	InGameHelpers** pInGameHelpers = nullptr;
+	OptionsHelpers** pOptionsHelpers = nullptr;
+	RankHelpers** pRankHelpers = nullptr;
 }
