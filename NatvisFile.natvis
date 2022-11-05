@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="app::String">
+    <DisplayString>{&amp;(fields.m_firstChar),su}</DisplayString>
+    <StringView>&amp;(fields.m_firstChar),su</StringView>
+    <Expand>
+      <Item Name="length">fields.m_stringLength</Item>
+    </Expand>
+  </Type>
+  <Type Name="Il2CppString">
+    <DisplayString>{chars,su}</DisplayString>
+    <StringView>chars,su</StringView>
+  </Type>
+  <Type Name="app::Color32">
+    <DisplayString>{{ r={int(r)} g={int(g)} b={int(b)} }}</DisplayString>
+  </Type>
+  <Type Name="app::il2cpp::Dictionary&lt;*&gt;">
+    <DisplayString>{{ size={_Ptr->fields.count - _Ptr->fields.freeCount} }}</DisplayString>
+    <Expand>
+      <Item Name="[size]">_Ptr->fields.count - _Ptr->fields.freeCount</Item>
+      <CustomListItems>
+        <Variable Name="i" InitialValue="0"/>
+        <Variable Name="count" InitialValue="_Ptr->fields.count - _Ptr->fields.freeCount"/>
+        <Loop Condition="i  &lt; count">
+          <Item Name="{_Ptr->fields.entries->vector[i].key,na}">_Ptr->fields.entries->vector[i].value</Item>
+          <Exec>i++</Exec>
+        </Loop>
+      </CustomListItems>
+    </Expand>
+  </Type>
+  <Type Name="app::Object_1__Array">
+    <AlternativeType Name="app::Camera__Array"/>
+    <AlternativeType Name="app::Color32__Array"/>
+    <AlternativeType Name="app::Byte__Array"/>
+    <AlternativeType Name="app::Int32__Array"/>
+    <DisplayString>{{ size={max_length} }}</DisplayString>
+    <Expand>
+      <Item Name="[size]">max_length</Item>
+      <ArrayItems>
+        <Size>max_length</Size>
+        <ValuePointer>vector</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  <Type Name="app::il2cpp::Array&lt;*&gt;">
+    <DisplayString>{{ size={_Ptr->max_length} }}</DisplayString>
+    <Expand>
+      <Item Name="[size]">_Ptr->max_length</Item>
+      <ArrayItems>
+        <Size>_Ptr->max_length</Size>
+        <ValuePointer>_Ptr->vector</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  <Type Name="app::il2cpp::List&lt;*&gt;">
+    <DisplayString>{{ size={_Ptr->fields._size} }}</DisplayString>
+    <Expand>
+      <Item Name="[size]">_Ptr->fields._size</Item>
+      <Item Name="[capacity]">_Ptr->fields._items->max_length</Item>
+      <ArrayItems>
+        <Size>_Ptr->fields._size</Size>
+        <ValuePointer>_Ptr->fields._items->vector</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  <Type Name="Il2CppClass">
+    <DisplayString>{{ Assembly={image->name,na} Namespaze={namespaze,na} Name={name,na} }}</DisplayString>
+  </Type>
+</AutoVisualizer>
