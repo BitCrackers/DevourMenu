@@ -22,6 +22,7 @@
     <ClCompile Include="gui\gui-helpers.cpp" />
     <ClCompile Include="gui\RenderCmd.cpp" />
     <ClCompile Include="gui\Renderer.cpp" />
+    <ClCompile Include="gui\tabs\debug_tab.cpp" />
     <ClCompile Include="gui\tabs\game_tab.cpp" />
     <ClCompile Include="gui\tabs\settings_tab.cpp" />
     <ClCompile Include="hooks\DirectX.cpp" />
@@ -253,6 +254,7 @@
     <ClInclude Include="gui\gui-helpers.hpp" />
     <ClInclude Include="gui\RenderCmd.hpp" />
     <ClInclude Include="gui\Renderer.hpp" />
+    <ClInclude Include="gui\tabs\debug_tab.h" />
     <ClInclude Include="gui\tabs\game_tab.h" />
     <ClInclude Include="gui\tabs\settings_tab.h" />
     <ClInclude Include="hooks\DirectX.h" />

@@ -55,6 +55,9 @@ void DetourInitilization() {
 				L"Error",
 				MB_YESNO | MB_ICONWARNING) == IDNO)
 			{
+#ifndef _VERSION
+				SetEvent(hUnloadEvent); //Might as well unload the DLL if we're not going to render anything
+#endif
 				return;
 			}
 			oPresent = d3d11.presentFunction;

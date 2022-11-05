@@ -103,6 +103,7 @@
     <ClCompile Include="gui\gui-helpers.cpp">
       <Filter>gui</Filter>
     </ClCompile>
+    <ClCompile Include="gui\tabs\debug_tab.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appdata\il2cpp-api-functions.h">
@@ -228,6 +229,7 @@
     <ClInclude Include="gui\gui-helpers.hpp">
       <Filter>gui</Filter>
     </ClInclude>
+    <ClInclude Include="gui\tabs\debug_tab.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="framework\version.def">
