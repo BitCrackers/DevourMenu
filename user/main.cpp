@@ -96,7 +96,7 @@ void Run(LPVOID lpParam) {
 	}
 
 #if _DEBUG
-	#define DO_APP_FUNC(r, n, p, s) if(!n) LOG_DEBUG("Unable to locate %s\n", #n)
+	#define DO_APP_FUNC(r, n, p, s) if(!n) printf("Unable to locate %s\n", #n)
 	#include "il2cpp-functions.h"
 	#undef DO_APP_FUNC
 #endif
