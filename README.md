@@ -26,7 +26,7 @@ Will automatically be loaded by the Game itself if the dll is in the game direct
 - Show Menu - DELETE
 
 ## Special Thanks
-* [KulaGGin](https://github.com/KulaGGin) (Helped me to understand how Devour works)
+* [ALittlePatate](https://github.com/ALittlePatate) (Helped me to understand how Devour works)
 * Everyone else who contributed to the code and I couldn't list here. Thank you!
 
 ## Contributing
