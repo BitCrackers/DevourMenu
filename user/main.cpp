@@ -94,5 +94,12 @@ void Run(LPVOID lpParam) {
 		LOG_INFO(ss.str());
 	}
 	State.Load();
+
+#if _DEBUG
+	#define DO_APP_FUNC(r, n, p, s) if(!n) printf("Unable to locate %s\n", #n)
+	#include "il2cpp-functions.h"
+	#undef DO_APP_FUNC
+#endif
+
 	DetourInitilization();
 }
