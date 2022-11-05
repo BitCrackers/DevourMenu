@@ -28,6 +28,9 @@ void Settings::Load() {
 
         JSON_TRYGET("ShowMenu", this->ShowMenu);
         JSON_TRYGET("KeyBinds", this->KeyBinds);
+#ifdef _DEBUG
+        JSON_TRYGET("ShowDebug", this->showDebugTab);
+#endif
         JSON_TRYGET("AdjustByDPI", this->KeyBinds);
         JSON_TRYGET("ShowUnityLogs", this->ShowUnityLogs);
     } catch (...) {
@@ -45,6 +48,9 @@ void Settings::Save() {
         nlohmann::ordered_json j = nlohmann::ordered_json{
             {"ShowMenu", this->ShowMenu},
             {"KeyBinds", this->KeyBinds},
+    #ifdef _DEBUG
+            {"ShowDebug", this->showDebugTab},
+    #endif
             {"AdjustByDPI", this->AdjustByDPI},
             {"ShowUnityLogs", this->ShowUnityLogs}
         };

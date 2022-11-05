@@ -3,6 +3,7 @@
 #include "imgui/imgui.h"
 #include "tabs/game_tab.h"
 #include "tabs/settings_tab.h"
+#include "tabs/debug_tab.h"
 #include "state.hpp"
 #include "gui-helpers.hpp"
 
@@ -24,6 +25,10 @@ namespace Menu {
 		if(!firstRender)
 			SettingsTab::Render();
 		GameTab::Render();
+#ifdef _DEBUG
+		if (State.showDebugTab)
+			DebugTab::Render();
+#endif
 
 		if(firstRender)
 			firstRender = false;
