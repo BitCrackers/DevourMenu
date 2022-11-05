@@ -1,5 +1,5 @@
+#include "pch-il2cpp.h"
 #include "RenderCmd.hpp"
-
 #include <memory>
 
 RenderCmdQueue::RenderCmdQueue()

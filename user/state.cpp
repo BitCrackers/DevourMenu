@@ -23,7 +23,7 @@ void Settings::Load() {
         try { \
             j.at(key).get_to(value); \
         } catch (nlohmann::detail::out_of_range& e) { \
-            Log.Info(e.what()); \
+            DLog.Info(e.what()); \
         }
 
         JSON_TRYGET("ShowMenu", this->ShowMenu);
@@ -31,7 +31,7 @@ void Settings::Load() {
         JSON_TRYGET("AdjustByDPI", this->KeyBinds);
         JSON_TRYGET("ShowUnityLogs", this->ShowUnityLogs);
     } catch (...) {
-        Log.Info("Unable to load settings.json");
+        DLog.Info("Unable to load settings.json");
     }
 
     //Do not do any IL2CPP stuff here!  The constructors of most classes have not run yet!
@@ -52,6 +52,6 @@ void Settings::Save() {
         std::ofstream outSettings(settingsPath);
         outSettings << std::setw(4) << j << std::endl;
     } catch (...) {
-        Log.Info("Unable to save settings.json");
+        DLog.Info("Unable to save settings.json");
     }
 }

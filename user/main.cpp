@@ -10,6 +10,7 @@
 #include "logger.h"
 #include "state.hpp"
 #include "version.h"
+#include "utility.h"
 #include <fstream>
 #include <sstream>
 #include "gitparams.h"
@@ -39,13 +40,13 @@ bool GameVersionCheck() {
 	auto steamApi = modulePath.parent_path() / "DEVOUR_Data" / "Plugins" / "x86_64" / "steam_api64.dll";
 
 	if (!IsWindows10OrGreater()) {
-		Log.Error("Version of windows not supported exiting!");
+		DLog.Error("Version of windows not supported exiting!");
 		MessageBox(NULL, L"This version of Windows is not supported!", L"DevourMenu", MB_OK | MB_ICONERROR | MB_SYSTEMMODAL);
 		return false;
 	}
 
 	if (!std::filesystem::exists(gameAssembly)) {
-		Log.Error("GameAssembly.dll was not found");
+		DLog.Error("GameAssembly.dll was not found");
 		MessageBox(NULL, L"Unable to locate GameAssembly.dll", L"DevourMenu", MB_OK | MB_ICONERROR | MB_SYSTEMMODAL);
 		return false;
 	}
@@ -74,7 +75,7 @@ void Run(LPVOID lpParam) {
 	new_console();
 #endif
 
-	Log.Create();
+	DLog.Create();
 	if (!GameVersionCheck()) {
 		fclose(stdout);
 		FreeConsole();

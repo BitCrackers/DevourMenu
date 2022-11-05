@@ -1,3 +1,4 @@
+#include "pch-il2cpp.h"
 #include "Renderer.hpp"
 #include "RenderCmd.hpp"
 #include "DirectX.h"

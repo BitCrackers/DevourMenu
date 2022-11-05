@@ -12,9 +12,9 @@
 #include "theme.hpp"
 #include <mutex>
 #include "logger.h"
-#include "resource_data.h"
 #include "game.h"
 #include "profiler.h"
+#include "state.hpp"
 #include <future>
 
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -28,9 +28,6 @@ WNDPROC oWndProc;
 
 HANDLE DirectX::hRenderSemaphore;
 constexpr DWORD MAX_RENDER_THREAD_COUNT = 5; //Should be overkill for our purposes
-
-std::vector<MapTexture> maps = std::vector<MapTexture>();
-std::unordered_map<ICON_TYPES, IconTexture> icons;
 
 typedef struct Cache
 {

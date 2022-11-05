@@ -1,7 +1,5 @@
 #pragma once
-
 #include "RenderCmd.hpp"
-
 #include <utility>
 #include <assert.h>
 

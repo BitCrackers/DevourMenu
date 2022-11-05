@@ -7,6 +7,7 @@
 #include "DirectX.h"
 #include "imgui/imgui_impl_win32.h" // ImGui_ImplWin32_GetDpiScaleForHwnd
 #include "theme.hpp" // ApplyTheme
+#include "gui-helpers.hpp"
 
 namespace SettingsTab {
 	void Render() {
@@ -15,12 +16,6 @@ namespace SettingsTab {
 			ImGui::Text("Show/Hide Menu Keybind:");
 			ImGui::SameLine();
 			if (HotKey(State.KeyBinds.Toggle_Menu)) {
-				State.Save();
-			}
-
-			ImGui::Text("Show/Hide Console Keybind:");
-			ImGui::SameLine();
-			if (HotKey(State.KeyBinds.Toggle_Console)) {
 				State.Save();
 			}
 

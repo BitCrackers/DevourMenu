@@ -6,24 +6,24 @@
 
 void dDebug_Log(Object* message, MethodInfo* method) {
 	if (State.ShowUnityLogs)
-		Log.Debug("UNITY", ToString(message));
+		DLog.Debug("UNITY", ToString(message));
 	Debug_Log(message, method);
 }
 
 void dDebug_LogError(Object* message, MethodInfo* method) {
 	if (State.ShowUnityLogs)
-		Log.Error("UNITY", ToString(message));
+		DLog.Error("UNITY", ToString(message));
 	Debug_LogError(message, method);
 }
 
 void dDebug_LogException(Exception* exception, MethodInfo* method) {
 	if (State.ShowUnityLogs)
-		Log.Error("UNITY", convert_from_string(exception->fields._message));
+		DLog.Error("UNITY", convert_from_string(exception->fields._message));
 	Debug_LogException(exception, method);
 }
 
 void dDebug_LogWarning(Object* message, MethodInfo* method) {
 	if (State.ShowUnityLogs)
-		Log.Info("UNITY", ToString(message));
+		DLog.Info("UNITY", ToString(message));
 	Debug_LogWarning(message, method);
 }
