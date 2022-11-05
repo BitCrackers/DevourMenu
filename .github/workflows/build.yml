@@ -7,7 +7,7 @@ on:
   # pr's will trigger this action. i think the idea here is to verify that a build is passing before merging.
   pull_request:
     branches:
-      - main
+      - master
   
 jobs:
   Build_Release:
