@@ -249,6 +249,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appdata\il2cpp-api-functions.h" />
+    <ClInclude Include="appdata\il2cpp-classes.h" />
     <ClInclude Include="appdata\il2cpp-functions.h" />
     <ClInclude Include="appdata\il2cpp-translations.h" />
     <ClInclude Include="gui\gui-helpers.hpp" />

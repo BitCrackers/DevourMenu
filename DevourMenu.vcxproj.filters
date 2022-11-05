@@ -234,6 +234,9 @@
     <ClInclude Include="gui\tabs\debug_tab.h">
       <Filter>gui\tabs</Filter>
     </ClInclude>
+    <ClInclude Include="appdata\il2cpp-classes.h">
+      <Filter>appdata</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="framework\version.def">

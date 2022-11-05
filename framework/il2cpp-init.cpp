@@ -24,4 +24,8 @@ void init_il2cpp()
 	#define DO_APP_FUNC(r, n, p, s) n = reinterpret_cast<decltype(n)>(get_method(s))
 	#include "il2cpp-functions.h"
 	#undef DO_APP_FUNC
+
+	#define DO_APP_CLASS(n, s) n ## __TypeInfo = reinterpret_cast<decltype(n ## __TypeInfo)>(get_class(s))
+	#include "il2cpp-classes.h"
+	#undef DO_APP_CLASS
 }
