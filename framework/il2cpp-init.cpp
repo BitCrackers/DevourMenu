@@ -11,6 +11,12 @@ namespace app {
 }
 #undef DO_APP_FUNC
 
+#define DO_APP_CLASS(n, s) n ## __Class* n ## __TypeInfo
+namespace app {
+#include "il2cpp-classes.h"
+}
+#undef DO_APP_CLASS
+
 void init_il2cpp()
 {
 	HMODULE moduleHandle = GetModuleHandleW(L"GameAssembly.dll");

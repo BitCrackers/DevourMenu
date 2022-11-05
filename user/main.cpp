@@ -94,17 +94,21 @@ void Run(LPVOID lpParam) {
 		ss << "\tDEVOUR Version: " << getGameVersion() << std::endl; // Log among us info
 		LOG_INFO(ss.str());
 	}
-
+	State.Load();
 #if _DEBUG
+	hUnloadEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
+
+	#define DO_APP_CLASS(n, s) if(!n ## __TypeInfo) printf("Unable to locate %s\n", #n "__TypeInfo")
+	#include "il2cpp-classes.h"
+	#undef DO_APP_CLASS
+
 	#define DO_APP_FUNC(r, n, p, s) if(!n) printf("Unable to locate %s\n", #n)
 	#include "il2cpp-functions.h"
 	#undef DO_APP_FUNC
 #endif
 
-	State.Load();
-#if _DEBUG
-	hUnloadEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
-#endif
+	GAME_STATIC_POINTER(Game::pSessionHelpers, app::SessionHelpers, instance);
+
 	DetourInitilization();
 
 #if _DEBUG

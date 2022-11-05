@@ -3,5 +3,5 @@
 #include "SignatureScan.hpp"
 
 namespace Game {
-
+	SessionHelpers** pSessionHelpers = nullptr;
 }
