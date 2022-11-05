@@ -14,6 +14,10 @@ public:
     bool ImGuiInitialized = false;
     bool ShowMenu = false;
 
+#ifdef _DEBUG
+    bool showDebugTab = false;
+#endif
+
     bool AdjustByDPI = true;
     float dpiScale = 1.f;
     bool dpiChanged = false;

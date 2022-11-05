@@ -43,6 +43,13 @@ namespace SettingsTab {
 #endif
 			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
 
+#ifdef _DEBUG
+			if (ImGui::Checkbox("Show Debug Tab", &State.showDebugTab)) {
+				State.Save();
+			}
+			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
+#endif
+
 			if (ImGui::Button("Unlock All Steam Achievements")) {
 				AchievementHelpers* ah = AchievementHelpers_get_singleton(NULL);
 				for (const char* achievement : steamAchievements) {
