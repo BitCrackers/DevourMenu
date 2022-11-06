@@ -87,3 +87,23 @@ bool Object_1_IsNull(app::Object_1* obj)
 {
 	return !Object_1_IsNotNull(obj);
 }
+
+il2cpp::List<List_1_NolanBehaviour_> GetAllPlayers()
+{
+	return (*Game::pInGameHelpers)->fields.m_Survival->fields.m_PlayerNolanBehaviours;
+}
+
+il2cpp::Array<DoorBehaviour__Array> GetAllDoors()
+{
+	return (*Game::pInGameHelpers)->fields.m_Survival->fields.doorBehaviours;
+}
+
+bool IsOwner(NolanBehaviour* player)
+{
+	return player->fields._._._._._entity->fields._entity->fields.IsOwner;
+}
+
+bool IsInGame()
+{
+	return (*Game::pOptionsHelpers)->fields.inGame;
+}

@@ -36,6 +36,37 @@ namespace app {
 		protected:
 			E* _Ptr;
 		};
+
+		template<typename E>
+		class List {
+		public:
+			using iterator = decltype(&E::fields._items->vector[0]);
+			constexpr List(E* list) : _Ptr(list) {}
+			constexpr size_t size() const {
+				if (!_Ptr) return 0;
+				auto pList = (List_1_NolanBehaviour_*)_Ptr;
+				return ((size_t(*)(void*, const void*))(pList->klass->vtable.get_Count.methodPtr))(pList, pList->klass->vtable.get_Count.method);
+			}
+			constexpr void clear() {
+				if (!_Ptr) return;
+				auto pList = (List_1_NolanBehaviour_*)_Ptr;
+				((void(*)(void*, const void*))(pList->klass->vtable.Clear.methodPtr))(pList, pList->klass->vtable.Clear.method);
+			}
+			constexpr void erase(size_t _Pos) {
+				if (!_Ptr || _Pos >= size()) return;
+				auto pList = (List_1_NolanBehaviour_*)_Ptr;
+				((void(*)(void*, size_t, const void*))(pList->klass->vtable.RemoveAt.methodPtr))(pList, _Pos, pList->klass->vtable.RemoveAt.method);
+			}
+			constexpr iterator begin() const {
+				if (!_Ptr) return nullptr;
+				return _Ptr->fields._items->vector;
+			}
+			constexpr iterator end() const { return begin() + size(); }
+			constexpr auto& operator[](const size_t _Pos) const { return begin()[_Pos]; }
+			constexpr E* get() const { return _Ptr; }
+		protected:
+			E* _Ptr;
+		};
 	}
 }
 
