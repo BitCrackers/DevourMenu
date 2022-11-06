@@ -106,6 +106,18 @@
     <ClCompile Include="gui\tabs\debug_tab.cpp">
       <Filter>gui\tabs</Filter>
     </ClCompile>
+    <ClCompile Include="hooks\Menu_2.cpp">
+      <Filter>hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks\OptionsHelpers.cpp">
+      <Filter>hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks\AchievementHelpers.cpp">
+      <Filter>hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks\SurvivalLobbyController.cpp">
+      <Filter>hooks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appdata\il2cpp-api-functions.h">

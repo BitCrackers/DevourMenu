@@ -25,7 +25,11 @@
     <ClCompile Include="gui\tabs\debug_tab.cpp" />
     <ClCompile Include="gui\tabs\game_tab.cpp" />
     <ClCompile Include="gui\tabs\settings_tab.cpp" />
+    <ClCompile Include="hooks\AchievementHelpers.cpp" />
     <ClCompile Include="hooks\DirectX.cpp" />
+    <ClCompile Include="hooks\Menu_2.cpp" />
+    <ClCompile Include="hooks\OptionsHelpers.cpp" />
+    <ClCompile Include="hooks\SurvivalLobbyController.cpp" />
     <ClCompile Include="hooks\UnityDebug.cpp" />
     <ClCompile Include="user\keybinds.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>

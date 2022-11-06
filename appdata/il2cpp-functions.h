@@ -52,3 +52,18 @@ DO_APP_FUNC(void, NolanBehaviour_PlopObject, (NolanBehaviour* __this, MethodInfo
 
 DO_APP_FUNC(AchievementHelpers*, AchievementHelpers_get_singleton, (MethodInfo* method), "Assembly-CSharp, AchievementHelpers AchievementHelpers::get_singleton()");
 DO_APP_FUNC(void, AchievementHelpers_Unlock, (AchievementHelpers* __this, String* achievementName, bool skipStoreStats, MethodInfo* method), "Assembly-CSharp, System.Void AchievementHelpers::Unlock(System.String, System.Boolean)");
+DO_APP_FUNC(bool, AchievementHelpers_ShowHardModeUnlocked, (AchievementHelpers* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean AchievementHelpers::ShowHardModeUnlocked()");
+DO_APP_FUNC(bool, AchievementHelpers_ShowHardRobeUnlocked, (AchievementHelpers* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean AchievementHelpers::ShowHardRobeUnlocked()");
+DO_APP_FUNC(bool, AchievementHelpers_ShowNightmareModeUnlocked, (AchievementHelpers* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean AchievementHelpers::ShowNightmareModeUnlocked()");
+
+DO_APP_FUNC(UIOutfitSelectionType*, Menu_2_SetupOutfit, (MenuM_2* __this, CharacterOutfit* outfit, MethodInfo* method), "Assembly-CSharp, UIOutfitSelectionType Horror.Menu::SetupOutfit(CharacterOutfit)");
+DO_APP_FUNC(UIPerkSelectionType*, Menu_2_SetupPerk, (MenuM_2* __this, CharacterPerk* perk, MethodInfo* method), "Assembly-CSharp, UIPerkSelectionType Horror.Menu::SetupPerk(CharacterPerk)");
+DO_APP_FUNC(UIFlashlightSelectionType*, Menu_2_SetupFlashlight, (MenuM_2* __this, CharacterFlashlight* flashlight, MethodInfo* method), "Assembly-CSharp, UIFlashlightSelectionType Horror.Menu::SetupFlashlight(CharacterFlashlight)");
+DO_APP_FUNC(UIPetSelectionType*, Menu_2_SetupPet, (MenuM_2* __this, CharacterPet* pet, MethodInfo* method), "Assembly-CSharp, UIPetSelectionType Horror.Menu::SetupPet(CharacterPet)");
+
+DO_APP_FUNC(bool, OptionsHelpers_IsCharacterUnlocked, (OptionsHelpers* __this, String* prefab, MethodInfo* method), "Assembly-CSharp, System.Boolean OptionsHelpers::IsCharacterUnlocked(System.String)");
+DO_APP_FUNC(bool, OptionsHelpers_IsRobeUnlocked, (OptionsHelpers* __this, String* robe, MethodInfo* method), "Assembly-CSharp, System.Boolean OptionsHelpers::IsRobeUnlocked(System.String)");
+
+DO_APP_FUNC(bool, SurvivalLobbyController_CanReady, (SurvivalLobbyController* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean SurvivalLobbyController::CanReady()");
+DO_APP_FUNC(bool, SurvivalLobbyController_PlayableCharacterSelected, (SurvivalLobbyController* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean SurvivalLobbyController::PlayableCharacterSelected()");
+DO_APP_FUNC(bool, SurvivalLobbyController_UnlockedCharacterSelected, (SurvivalLobbyController* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean SurvivalLobbyController::UnlockedCharacterSelected()");

@@ -70,6 +70,18 @@ void DetourInitilization() {
 	HOOKFUNC(Debug_LogError);
 	HOOKFUNC(Debug_LogException);
 	HOOKFUNC(Debug_LogWarning);
+	HOOKFUNC(Menu_2_SetupOutfit);
+	HOOKFUNC(Menu_2_SetupPerk);
+	HOOKFUNC(Menu_2_SetupFlashlight);
+	HOOKFUNC(Menu_2_SetupPet);
+	HOOKFUNC(AchievementHelpers_ShowHardModeUnlocked);
+	HOOKFUNC(AchievementHelpers_ShowHardRobeUnlocked);
+	HOOKFUNC(AchievementHelpers_ShowNightmareModeUnlocked);
+	HOOKFUNC(OptionsHelpers_IsCharacterUnlocked);
+	HOOKFUNC(OptionsHelpers_IsRobeUnlocked);
+	HOOKFUNC(SurvivalLobbyController_CanReady);
+	HOOKFUNC(SurvivalLobbyController_PlayableCharacterSelected);
+	HOOKFUNC(SurvivalLobbyController_UnlockedCharacterSelected);
 
 	if (!HookFunction(&(PVOID&)oPresent, dPresent, "D3D_PRESENT_FUNCTION")) return;
 
@@ -85,6 +97,18 @@ void DetourUninitialization()
 	UNHOOKFUNC(Debug_LogError);
 	UNHOOKFUNC(Debug_LogException);
 	UNHOOKFUNC(Debug_LogWarning);
+	UNHOOKFUNC(Menu_2_SetupOutfit);
+	UNHOOKFUNC(Menu_2_SetupPerk);
+	UNHOOKFUNC(Menu_2_SetupFlashlight);
+	UNHOOKFUNC(Menu_2_SetupPet);
+	UNHOOKFUNC(AchievementHelpers_ShowHardModeUnlocked);
+	UNHOOKFUNC(AchievementHelpers_ShowHardRobeUnlocked);
+	UNHOOKFUNC(AchievementHelpers_ShowNightmareModeUnlocked);
+	UNHOOKFUNC(OptionsHelpers_IsCharacterUnlocked);
+	UNHOOKFUNC(OptionsHelpers_IsRobeUnlocked);
+	UNHOOKFUNC(SurvivalLobbyController_CanReady);
+	UNHOOKFUNC(SurvivalLobbyController_PlayableCharacterSelected);
+	UNHOOKFUNC(SurvivalLobbyController_UnlockedCharacterSelected);
 
 	if (DetourDetach(&(PVOID&)oPresent, dPresent) != 0) return;
 
