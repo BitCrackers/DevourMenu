@@ -27,6 +27,7 @@
     <ClCompile Include="gui\tabs\settings_tab.cpp" />
     <ClCompile Include="hooks\AchievementHelpers.cpp" />
     <ClCompile Include="hooks\DirectX.cpp" />
+    <ClCompile Include="hooks\LockedInteractable.cpp" />
     <ClCompile Include="hooks\Menu_2.cpp" />
     <ClCompile Include="hooks\OptionsHelpers.cpp" />
     <ClCompile Include="hooks\SurvivalLobbyController.cpp" />

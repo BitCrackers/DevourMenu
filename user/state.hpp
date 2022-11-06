@@ -24,6 +24,8 @@ public:
 
     bool ShowUnityLogs = true;
 
+    bool doorsUnlocked = false;
+
     void Load();
     void Save();
 };

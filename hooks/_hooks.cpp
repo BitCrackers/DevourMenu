@@ -82,6 +82,7 @@ void DetourInitilization() {
 	HOOKFUNC(SurvivalLobbyController_CanReady);
 	HOOKFUNC(SurvivalLobbyController_PlayableCharacterSelected);
 	HOOKFUNC(SurvivalLobbyController_UnlockedCharacterSelected);
+	HOOKFUNC(LockedInteractable_CanInteract)
 
 	if (!HookFunction(&(PVOID&)oPresent, dPresent, "D3D_PRESENT_FUNCTION")) return;
 
@@ -109,6 +110,7 @@ void DetourUninitialization()
 	UNHOOKFUNC(SurvivalLobbyController_CanReady);
 	UNHOOKFUNC(SurvivalLobbyController_PlayableCharacterSelected);
 	UNHOOKFUNC(SurvivalLobbyController_UnlockedCharacterSelected);
+	UNHOOKFUNC(LockedInteractable_CanInteract)
 
 	if (DetourDetach(&(PVOID&)oPresent, dPresent) != 0) return;
 

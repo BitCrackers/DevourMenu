@@ -9,6 +9,8 @@
 namespace GameTab {
 	void Render() {
 		if (ImGui::BeginTabItem("Game")) {
+			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
+			ImGui::Checkbox("All Doors Unlocked", &State.doorsUnlocked);
 			ImGui::EndTabItem();
 		}
 	}

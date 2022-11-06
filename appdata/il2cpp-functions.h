@@ -67,3 +67,5 @@ DO_APP_FUNC(bool, OptionsHelpers_IsRobeUnlocked, (OptionsHelpers* __this, String
 DO_APP_FUNC(bool, SurvivalLobbyController_CanReady, (SurvivalLobbyController* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean SurvivalLobbyController::CanReady()");
 DO_APP_FUNC(bool, SurvivalLobbyController_PlayableCharacterSelected, (SurvivalLobbyController* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean SurvivalLobbyController::PlayableCharacterSelected()");
 DO_APP_FUNC(bool, SurvivalLobbyController_UnlockedCharacterSelected, (SurvivalLobbyController* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean SurvivalLobbyController::UnlockedCharacterSelected()");
+
+DO_APP_FUNC(bool, LockedInteractable_CanInteract, (LockedInteractable* __this, GameObject* character, MethodInfo* method), "Assembly-CSharp, System.Boolean LockedInteractable::CanInteract(UnityEngine.GameObject)");

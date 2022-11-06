@@ -118,6 +118,9 @@
     <ClCompile Include="hooks\SurvivalLobbyController.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
+    <ClCompile Include="hooks\LockedInteractable.cpp">
+      <Filter>hooks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appdata\il2cpp-api-functions.h">
