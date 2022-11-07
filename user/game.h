@@ -10,4 +10,5 @@ namespace Game {
 	extern InGameHelpers** pInGameHelpers;
 	extern OptionsHelpers** pOptionsHelpers;
 	extern RankHelpers** pRankHelpers;
+	extern SaveHelpers** pSaveHelpers;
 }

@@ -8,4 +8,5 @@ namespace Game {
 	InGameHelpers** pInGameHelpers = nullptr;
 	OptionsHelpers** pOptionsHelpers = nullptr;
 	RankHelpers** pRankHelpers = nullptr;
+	SaveHelpers** pSaveHelpers = nullptr;
 }

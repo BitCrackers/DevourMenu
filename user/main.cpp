@@ -112,6 +112,7 @@ void Run(LPVOID lpParam) {
 	GAME_STATIC_POINTER(Game::pInGameHelpers, app::InGameHelpers, instance);
 	GAME_STATIC_POINTER(Game::pOptionsHelpers, app::OptionsHelpers, instance);
 	GAME_STATIC_POINTER(Game::pRankHelpers, app::RankHelpers, instance);
+	GAME_STATIC_POINTER(Game::pSaveHelpers, app::SaveHelpers, instance);
 
 	DetourInitilization();
 
