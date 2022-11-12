@@ -69,3 +69,6 @@ DO_APP_FUNC(bool, SurvivalLobbyController_PlayableCharacterSelected, (SurvivalLo
 DO_APP_FUNC(bool, SurvivalLobbyController_UnlockedCharacterSelected, (SurvivalLobbyController* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean SurvivalLobbyController::UnlockedCharacterSelected()");
 
 DO_APP_FUNC(bool, LockedInteractable_CanInteract, (LockedInteractable* __this, GameObject* character, MethodInfo* method), "Assembly-CSharp, System.Boolean LockedInteractable::CanInteract(UnityEngine.GameObject)");
+
+DO_APP_FUNC(void, PrefabId__ctor, (PrefabId__Boxed* __this, int32_t value, MethodInfo* method), "bolt, System.Void Photon.Bolt.PrefabId::.ctor(System.Int32)");
+DO_APP_FUNC(String*, PrefabId_ToString, (PrefabId__Boxed* __this, MethodInfo* method), "bolt, System.String Photon.Bolt.PrefabId::ToString()");

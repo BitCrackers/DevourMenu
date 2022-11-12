@@ -44,17 +44,17 @@ namespace app {
 			constexpr List(E* list) : _Ptr(list) {}
 			constexpr size_t size() const {
 				if (!_Ptr) return 0;
-				auto pList = (List_1_NolanBehaviour_*)_Ptr;
+				auto pList = (E*)_Ptr;
 				return ((size_t(*)(void*, const void*))(pList->klass->vtable.get_Count.methodPtr))(pList, pList->klass->vtable.get_Count.method);
 			}
 			constexpr void clear() {
 				if (!_Ptr) return;
-				auto pList = (List_1_NolanBehaviour_*)_Ptr;
+				auto pList = (E*)_Ptr;
 				((void(*)(void*, const void*))(pList->klass->vtable.Clear.methodPtr))(pList, pList->klass->vtable.Clear.method);
 			}
 			constexpr void erase(size_t _Pos) {
 				if (!_Ptr || _Pos >= size()) return;
-				auto pList = (List_1_NolanBehaviour_*)_Ptr;
+				auto pList = (E*)_Ptr;
 				((void(*)(void*, size_t, const void*))(pList->klass->vtable.RemoveAt.methodPtr))(pList, _Pos, pList->klass->vtable.RemoveAt.method);
 			}
 			constexpr iterator begin() const {

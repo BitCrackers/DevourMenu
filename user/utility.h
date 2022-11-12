@@ -36,7 +36,9 @@ float GetDistanceBetweenPoints_ImGui(const ImVec2& p1, const ImVec2& p2);
 bool Object_1_IsNotNull(app::Object_1* unity_object);
 bool Object_1_IsNull(app::Object_1* unity_object);
 
+NolanBehaviour* GetLocalPlayer();
 il2cpp::List<List_1_NolanBehaviour_> GetAllPlayers();
 il2cpp::Array<DoorBehaviour__Array> GetAllDoors();
 bool IsOwner(NolanBehaviour * player);
 bool IsInGame();
+std::string GetPrefabName(int32_t prefabId);

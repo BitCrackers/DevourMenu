@@ -88,6 +88,16 @@ bool Object_1_IsNull(app::Object_1* obj)
 	return !Object_1_IsNotNull(obj);
 }
 
+NolanBehaviour* GetLocalPlayer()
+{
+	for (auto p : GetAllPlayers())
+	{
+		if (p->fields._._._._._entity->fields._entity->fields.IsOwner)
+			return p;
+	}
+	return nullptr;
+}
+
 il2cpp::List<List_1_NolanBehaviour_> GetAllPlayers()
 {
 	return (*Game::pInGameHelpers)->fields.m_Survival->fields.m_PlayerNolanBehaviours;
@@ -106,4 +116,12 @@ bool IsOwner(NolanBehaviour* player)
 bool IsInGame()
 {
 	return (*Game::pOptionsHelpers)->fields.inGame;
+}
+
+//TODO: FIX THIS
+std::string GetPrefabName(int32_t prefabId)
+{
+	PrefabId__Boxed* cPrefabId = (PrefabId__Boxed*)il2cpp_object_new((Il2CppClass*)PrefabId__TypeInfo);
+	PrefabId__ctor(cPrefabId, prefabId, NULL);
+	return convert_from_string(PrefabId_ToString(cPrefabId, NULL));
 }
