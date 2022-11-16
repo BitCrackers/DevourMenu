@@ -34,6 +34,8 @@ DO_APP_FUNC(GameObject__Array*, Scene_GetRootGameObjects, (Scene__Boxed* __this,
 
 DO_APP_FUNC(void, SceneManager_Internal_ActiveSceneChanged, (Scene previousActiveScene, Scene newActiveScene, MethodInfo* method), "UnityEngine.CoreModule, System.Void UnityEngine.SceneManagement.SceneManager::Internal_ActiveSceneChanged(UnityEngine.SceneManagement.Scene, UnityEngine.SceneManagement.Scene)");
 DO_APP_FUNC(Scene, SceneManager_GetActiveScene, (MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.SceneManagement.Scene UnityEngine.SceneManagement.SceneManager::GetActiveScene()");
+DO_APP_FUNC(Scene, SceneManager_GetSceneAt, (int32_t index, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.SceneManagement.Scene UnityEngine.SceneManagement.SceneManager::GetSceneAt(System.Int32)");
+DO_APP_FUNC(int32_t, SceneManager_get_sceneCount, (MethodInfo* method), "UnityEngine.CoreModule, System.Int32 UnityEngine.SceneManagement.SceneManager::get_sceneCount()");
 
 DO_APP_FUNC(float, Vector2_Distance, (Vector2 a, Vector2 b, MethodInfo* method), "UnityEngine.CoreModule, System.Single UnityEngine.Vector2::Distance(UnityEngine.Vector2, UnityEngine.Vector2)");
 
@@ -93,4 +95,4 @@ DO_APP_FUNC(String*, PrefabId_ToString, (PrefabId__Boxed* __this, MethodInfo* me
 
 DO_APP_FUNC(String*, KeyBehaviour_GetKeyName, (KeyBehaviour* __this, MethodInfo* method), "Assembly-CSharp, System.String KeyBehaviour::GetKeyName()");
 
-DO_APP_FUNC(String*, DoorBehaviour_KeyName, (DoorBehaviour* __this, MethodInfo* method), "Assembly-CSharp, System.String DoorBehaviour::KeyName()");
+DO_APP_FUNC(String*, DoorBehaviour_KeyName, (DoorBehaviour* __this, MethodInfo* method), "Assembly-CSharp, System.String Horror.DoorBehaviour::KeyName()");

@@ -41,8 +41,11 @@ il2cpp::List<List_1_NolanBehaviour_> GetAllPlayers();
 il2cpp::Array<DoorBehaviour__Array> GetAllDoors();
 bool IsOwner(NolanBehaviour * player);
 bool IsInGame();
-il2cpp::Array<GameObject__Array> GetGameObjectsInActiveScene();
 std::string GetActiveSceneName();
+std::vector<Scene> GetAllScenes();
+il2cpp::Array<GameObject__Array> GetGameObjectsInActiveScene();
+il2cpp::Array<GameObject__Array> GetGameObjectsInSceneAt(int32_t index);
+std::vector<GameObject*> GetGameObjectsInAllScenes();
 il2cpp::Array<Object_1__Array> GetGameObjectsOfType(const char* module, const char* name);
 
 template<typename E>

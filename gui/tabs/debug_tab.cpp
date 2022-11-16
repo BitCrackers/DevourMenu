@@ -51,7 +51,8 @@ namespace DebugTab {
 
 			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
 
-			if (ImGui::Button("Debug Entities")) {
+			if (ImGui::Button("Debug Interactables"))
+			{
 				il2cpp::Array goatArray = GetGameObjectsOfType("Assembly-CSharp", "GoatInteractable");
 				il2cpp::Array keyArray = GetGameObjectsOfType("Assembly-CSharp", "KeyInteractable");
 				il2cpp::Array survivalArray = GetGameObjectsOfType("Assembly-CSharp", "SurvivalInteractable");
@@ -73,6 +74,14 @@ namespace DebugTab {
 
 
 				printf("Active Scene: %s\n", GetActiveSceneName().c_str());
+			}
+
+			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
+
+			if (ImGui::Button("Debug GameObjects"))
+			{
+				auto gameObjects = GetGameObjectsInAllScenes();
+				printf("%llu GameObjects found.\n", gameObjects.size());
 			}
 
 			ImGui::EndTabItem();

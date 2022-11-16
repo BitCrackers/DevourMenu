@@ -118,20 +118,65 @@ bool IsInGame()
 	return (*Game::pOptionsHelpers)->fields.inGame;
 }
 
+std::string GetActiveSceneName()
+{
+	auto activeScene = app::SceneManager_GetActiveScene(NULL);
+	auto activeSceneBoxed = (Scene__Boxed*)il2cpp_value_box((Il2CppClass*)app::Scene__TypeInfo, &activeScene);
+
+	return convert_from_string(app::Scene_get_name(activeSceneBoxed, NULL));
+}
+
+std::vector<Scene> GetAllScenes()
+{
+	std::vector<Scene> scenes;
+	auto sceneCount = app::SceneManager_get_sceneCount(NULL);
+
+	if (sceneCount == 0)
+		return scenes;
+
+	for (int i = 0; i < sceneCount; i++)
+	{
+		scenes.emplace_back(app::SceneManager_GetSceneAt(i, NULL));
+	}
+
+	return scenes;
+}
+
 il2cpp::Array<GameObject__Array> GetGameObjectsInActiveScene()
 {
-	auto activeScene = app::SceneManager_GetActiveScene(nullptr);
+	auto activeScene = app::SceneManager_GetActiveScene(NULL);
 	auto activeSceneBoxed = (Scene__Boxed*)il2cpp_value_box((Il2CppClass*)app::Scene__TypeInfo, &activeScene);
 
 	return app::Scene_GetRootGameObjects(activeSceneBoxed, NULL);
 }
 
-std::string GetActiveSceneName()
+il2cpp::Array<GameObject__Array> GetGameObjectsInSceneAt(int32_t index)
 {
-	auto activeScene = app::SceneManager_GetActiveScene(nullptr);
-	auto activeSceneBoxed = (Scene__Boxed*)il2cpp_value_box((Il2CppClass*)app::Scene__TypeInfo, &activeScene);
+	if (index < 0 || index >= app::SceneManager_get_sceneCount(NULL))
+		return nullptr;
 
-	return convert_from_string(app::Scene_get_name(activeSceneBoxed, nullptr));
+	auto scene = app::SceneManager_GetSceneAt(index, NULL);
+	auto sceneBoxed = (Scene__Boxed*)il2cpp_value_box((Il2CppClass*)app::Scene__TypeInfo, &scene);
+
+	return app::Scene_GetRootGameObjects(sceneBoxed, NULL);
+}
+
+std::vector<GameObject*> GetGameObjectsInAllScenes()
+{
+	std::vector<GameObject*> vGameObjects;
+	auto scenes = GetAllScenes();
+
+	for (auto scene : scenes)
+	{
+		auto sceneBoxed = (Scene__Boxed*)il2cpp_value_box((Il2CppClass*)app::Scene__TypeInfo, &scene);
+		il2cpp::Array gObjects = app::Scene_GetRootGameObjects(sceneBoxed, NULL);
+		for (auto object : gObjects)
+		{
+			vGameObjects.emplace_back(object);
+		}
+	}
+
+	return vGameObjects;
 }
 
 il2cpp::Array<Object_1__Array> GetGameObjectsOfType(const char* assemblyName, const char* className)
