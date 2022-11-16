@@ -40,7 +40,7 @@ bool Equals(const Vector2& vec1, const Vector2& vec2) {
 }
 
 std::string ToString(Object* object) {
-	std::string type = convert_from_string(Object_ToString(object, NULL));
+	std::string type = convert_from_string(app::Object_ToString(object, NULL));
 	if (type == "System.String") {
 		return convert_from_string((String*)object);
 	}
@@ -118,10 +118,24 @@ bool IsInGame()
 	return (*Game::pOptionsHelpers)->fields.inGame;
 }
 
-//TODO: FIX THIS
-std::string GetPrefabName(int32_t prefabId)
+il2cpp::Array<GameObject__Array> GetGameObjectsInActiveScene()
 {
-	PrefabId__Boxed* cPrefabId = (PrefabId__Boxed*)il2cpp_object_new((Il2CppClass*)PrefabId__TypeInfo);
-	PrefabId__ctor(cPrefabId, prefabId, NULL);
-	return convert_from_string(PrefabId_ToString(cPrefabId, NULL));
+	auto activeScene = app::SceneManager_GetActiveScene(nullptr);
+	auto activeSceneBoxed = (Scene__Boxed*)il2cpp_value_box((Il2CppClass*)app::Scene__TypeInfo, &activeScene);
+
+	return app::Scene_GetRootGameObjects(activeSceneBoxed, NULL);
+}
+
+std::string GetActiveSceneName()
+{
+	auto activeScene = app::SceneManager_GetActiveScene(nullptr);
+	auto activeSceneBoxed = (Scene__Boxed*)il2cpp_value_box((Il2CppClass*)app::Scene__TypeInfo, &activeScene);
+
+	return convert_from_string(app::Scene_get_name(activeSceneBoxed, nullptr));
+}
+
+il2cpp::Array<Object_1__Array> GetGameObjectsOfType(const char* assemblyName, const char* className)
+{
+	auto type = app::Type_GetType_2(convert_to_string(std::string(className) + std::string(", ") + std::string(assemblyName)), NULL);
+	return app::Object_1_FindObjectsOfType(type, NULL);
 }

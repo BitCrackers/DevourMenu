@@ -11,6 +11,8 @@
 #include "gui-helpers.hpp"
 
 namespace DebugTab {
+	static const char* items[]{ "SurvivalHay", "SurvivalGoat", "SurvivalRat", "SurvivalFirstAid", "SurvivalBattery", "SurvivalGasoline", "SurvivalFuse", "SurvivalRottenFood", "SurvivalBleach", };
+	static int selectedItem = 1;
 
 	void Render() {
 		if (ImGui::BeginTabItem("Debug")) {
@@ -36,7 +38,42 @@ namespace DebugTab {
 
 			ImGui::Checkbox("Log Unity Debug Messages", &State.ShowUnityLogs);
 
+			ImGui::Dummy(ImVec2(7, 7) * State.dpiScale);
+			ImGui::Separator();
+			ImGui::Dummy(ImVec2(7, 7) * State.dpiScale);
+
+			ImGui::Combo("##SpawnItems", &selectedItem, items, IM_ARRAYSIZE(items));
 			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
+			if (ImGui::Button("Spawn") && IsInGame() && GetLocalPlayer())
+			{
+				app::NolanBehaviour_StartCarry(GetLocalPlayer(), convert_to_string(std::string(items[selectedItem])), NULL);
+			}
+
+			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
+
+			if (ImGui::Button("Debug Entities")) {
+				il2cpp::Array goatArray = GetGameObjectsOfType("Assembly-CSharp", "GoatInteractable");
+				il2cpp::Array keyArray = GetGameObjectsOfType("Assembly-CSharp", "KeyInteractable");
+				il2cpp::Array survivalArray = GetGameObjectsOfType("Assembly-CSharp", "SurvivalInteractable");
+
+				for (auto interactable : goatArray)
+				{
+					printf("Goat: %s\n", convert_from_string(((GoatInteractable*)interactable)->fields.prefabName).c_str());
+				}
+
+				for (auto interactable : keyArray)
+				{
+					printf("Key: %s\n", convert_from_string(app::KeyBehaviour_GetKeyName(((KeyInteractable*)interactable)->fields.keyBehaviour, NULL)).c_str());
+				}
+
+				for (auto interactable : survivalArray)
+				{
+					printf("Survival: %s\n", convert_from_string(((SurvivalInteractable*)interactable)->fields.prefabName).c_str());
+				}
+
+
+				printf("Active Scene: %s\n", GetActiveSceneName().c_str());
+			}
 
 			ImGui::EndTabItem();
 		}

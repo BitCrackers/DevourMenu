@@ -41,4 +41,36 @@ il2cpp::List<List_1_NolanBehaviour_> GetAllPlayers();
 il2cpp::Array<DoorBehaviour__Array> GetAllDoors();
 bool IsOwner(NolanBehaviour * player);
 bool IsInGame();
-std::string GetPrefabName(int32_t prefabId);
+il2cpp::Array<GameObject__Array> GetGameObjectsInActiveScene();
+std::string GetActiveSceneName();
+il2cpp::Array<Object_1__Array> GetGameObjectsOfType(const char* module, const char* name);
+
+template<typename E>
+std::vector<E> GetComponentsInActiveSceneOfType(const char* assemblyName, const char* className)
+{
+	std::vector<E> vComponents;
+
+	auto type = app::Type_GetType_2(convert_to_string(std::string(className) + std::string(", ") + std::string(assemblyName)), NULL);
+
+	if (!type)
+		return vComponents;
+
+	auto activeScene = app::SceneManager_GetActiveScene(nullptr);
+	auto activeSceneBoxed = (Scene__Boxed*)il2cpp_value_box((Il2CppClass*)app::Scene__TypeInfo, &activeScene);
+
+	il2cpp::Array gameObjects = app::Scene_GetRootGameObjects(activeSceneBoxed, NULL);
+	for (auto gameObject : gameObjects)
+	{
+		il2cpp::Array components = app::GameObject_GetComponents(gameObject, type, NULL);
+
+		if (!components.get() || components.size() == 0)
+			continue;
+
+		for (auto component : components)
+		{
+			vComponents.emplace_back((E)component);
+		}
+	}
+
+	return vComponents;
+}
