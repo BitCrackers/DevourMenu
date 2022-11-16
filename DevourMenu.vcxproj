@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="gui\esp.cpp" />
     <ClCompile Include="gui\gui-helpers.cpp" />
     <ClCompile Include="gui\RenderCmd.cpp" />
     <ClCompile Include="gui\Renderer.cpp" />
     <ClCompile Include="gui\tabs\debug_tab.cpp" />
+    <ClCompile Include="gui\tabs\esp_tab.cpp" />
     <ClCompile Include="gui\tabs\game_tab.cpp" />
     <ClCompile Include="gui\tabs\settings_tab.cpp" />
     <ClCompile Include="hooks\AchievementHelpers.cpp" />
@@ -140,7 +142,6 @@
     <ClCompile Include="hooks\_hooks.cpp" />
     <ClCompile Include="user\logger.cpp" />
     <ClCompile Include="user\profiler.cpp" />
-    <ClCompile Include="user\resources.cpp" />
     <ClCompile Include="user\utility.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_Version|x64'">NotUsing</PrecompiledHeader>
@@ -257,10 +258,12 @@
     <ClInclude Include="appdata\il2cpp-classes.h" />
     <ClInclude Include="appdata\il2cpp-functions.h" />
     <ClInclude Include="appdata\il2cpp-translations.h" />
+    <ClInclude Include="gui\esp.hpp" />
     <ClInclude Include="gui\gui-helpers.hpp" />
     <ClInclude Include="gui\RenderCmd.hpp" />
     <ClInclude Include="gui\Renderer.hpp" />
     <ClInclude Include="gui\tabs\debug_tab.h" />
+    <ClInclude Include="gui\tabs\esp_tab.h" />
     <ClInclude Include="gui\tabs\game_tab.h" />
     <ClInclude Include="gui\tabs\settings_tab.h" />
     <ClInclude Include="hooks\DirectX.h" />
@@ -274,7 +277,6 @@
     <ClInclude Include="user\keybinds.h" />
     <ClInclude Include="user\logger.h" />
     <ClInclude Include="user\profiler.h" />
-    <ClInclude Include="user\resources.h" />
     <ClInclude Include="user\utility.h" />
     <ClInclude Include="framework\il2cpp-appdata.h" />
     <ClInclude Include="appdata\il2cpp-types.h" />
@@ -282,7 +284,6 @@
     <ClInclude Include="framework\il2cpp-init.h" />
     <ClInclude Include="gui\menu.hpp" />
     <ClInclude Include="gui\theme.hpp" />
-    <ClInclude Include="includes\stb_image.h" />
     <ClInclude Include="includes\imgui\imconfig.h" />
     <ClInclude Include="includes\imgui\imgui.h" />
     <ClInclude Include="includes\imgui\imgui_impl_dx11.h" />
@@ -383,7 +384,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch-il2cpp.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)appdata;$(ProjectDir)events;$(ProjectDir)framework;$(ProjectDir)gui;$(ProjectDir)hooks;$(ProjectDir)includes;$(ProjectDir)resources;$(ProjectDir)rpc;$(ProjectDir)user;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)appdata;$(ProjectDir)framework;$(ProjectDir)gui;$(ProjectDir)hooks;$(ProjectDir)includes;$(ProjectDir)user;$(ProjectDir)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -426,7 +427,7 @@ git rev-parse --abbrev-ref HEAD &gt;&gt;  gitparams.h</Command>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch-il2cpp.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)appdata;$(ProjectDir)events;$(ProjectDir)framework;$(ProjectDir)gui;$(ProjectDir)hooks;$(ProjectDir)includes;$(ProjectDir)resources;$(ProjectDir)rpc;$(ProjectDir)user;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)appdata;$(ProjectDir)framework;$(ProjectDir)gui;$(ProjectDir)hooks;$(ProjectDir)includes;$(ProjectDir)user;$(ProjectDir)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -471,7 +472,7 @@ git rev-parse --abbrev-ref HEAD &gt;&gt;  gitparams.h</Command>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch-il2cpp.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)appdata;$(ProjectDir)events;$(ProjectDir)framework;$(ProjectDir)gui;$(ProjectDir)hooks;$(ProjectDir)includes;$(ProjectDir)resources;$(ProjectDir)rpc;$(ProjectDir)user;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)appdata;$(ProjectDir)framework;$(ProjectDir)gui;$(ProjectDir)hooks;$(ProjectDir)includes;$(ProjectDir)user;$(ProjectDir)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <DebugInformationFormat>None</DebugInformationFormat>
@@ -519,7 +520,7 @@ git rev-parse --abbrev-ref HEAD &gt;&gt;  gitparams.h</Command>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch-il2cpp.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)appdata;$(ProjectDir)events;$(ProjectDir)framework;$(ProjectDir)gui;$(ProjectDir)hooks;$(ProjectDir)includes;$(ProjectDir)resources;$(ProjectDir)rpc;$(ProjectDir)user;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)appdata;$(ProjectDir)framework;$(ProjectDir)gui;$(ProjectDir)hooks;$(ProjectDir)includes;$(ProjectDir)user;$(ProjectDir)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <DebugInformationFormat>None</DebugInformationFormat>

@@ -26,6 +26,8 @@ public:
 
     bool doorsUnlocked = false;
 
+    bool ShowEsp = false;
+
     void Load();
     void Save();
 };

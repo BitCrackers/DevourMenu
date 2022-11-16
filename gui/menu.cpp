@@ -2,6 +2,7 @@
 #include "menu.hpp"
 #include "imgui/imgui.h"
 #include "tabs/game_tab.h"
+#include "tabs/esp_tab.h"
 #include "tabs/settings_tab.h"
 #include "tabs/debug_tab.h"
 #include "state.hpp"
@@ -25,6 +26,7 @@ namespace Menu {
 		if(!firstRender)
 			SettingsTab::Render();
 		GameTab::Render();
+		EspTab::Render();
 #ifdef _DEBUG
 		if (State.showDebugTab)
 			DebugTab::Render();

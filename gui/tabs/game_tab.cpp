@@ -8,6 +8,9 @@
 
 namespace GameTab {
 	void Render() {
+		if (not IsInGame())
+			return;
+
 		if (ImGui::BeginTabItem("Game")) {
 			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
 

@@ -67,9 +67,6 @@
     <ClCompile Include="user\main.cpp">
       <Filter>user</Filter>
     </ClCompile>
-    <ClCompile Include="user\resources.cpp">
-      <Filter>user</Filter>
-    </ClCompile>
     <ClCompile Include="user\state.cpp">
       <Filter>user</Filter>
     </ClCompile>
@@ -121,6 +118,12 @@
     <ClCompile Include="hooks\LockedInteractable.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
+    <ClCompile Include="gui\tabs\esp_tab.cpp">
+      <Filter>gui\tabs</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\esp.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appdata\il2cpp-api-functions.h">
@@ -171,9 +174,6 @@
     <ClInclude Include="includes\json.hpp">
       <Filter>includes</Filter>
     </ClInclude>
-    <ClInclude Include="includes\stb_image.h">
-      <Filter>includes</Filter>
-    </ClInclude>
     <ClInclude Include="includes\imgui\imconfig.h">
       <Filter>includes\imgui</Filter>
     </ClInclude>
@@ -202,9 +202,6 @@
       <Filter>includes\detours</Filter>
     </ClInclude>
     <ClInclude Include="user\main.h">
-      <Filter>user</Filter>
-    </ClInclude>
-    <ClInclude Include="user\resources.h">
       <Filter>user</Filter>
     </ClInclude>
     <ClInclude Include="user\state.hpp">
@@ -251,6 +248,12 @@
     </ClInclude>
     <ClInclude Include="appdata\il2cpp-classes.h">
       <Filter>appdata</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\tabs\esp_tab.h">
+      <Filter>gui\tabs</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\esp.hpp">
+      <Filter>gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,7 @@
 #include "imgui/imstb_truetype.h"
 #include "keybinds.h"
 #include "menu.hpp"
+#include "esp.hpp"
 #include "theme.hpp"
 #include <mutex>
 #include "logger.h"
@@ -254,6 +255,35 @@ HRESULT __stdcall dPresent(IDXGISwapChain* __this, UINT SyncInterval, UINT Flags
     if (State.ShowMenu)
     {
         ImGuiRenderer::Submit([]() { Menu::Render(); });
+    }
+
+    if (State.ShowEsp)
+    {
+        ImGuiRenderer::Submit([&]()
+            {
+                //Push ImGui flags
+                ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.f * State.dpiScale);
+                ImGui::PushStyleColor(ImGuiCol_WindowBg, { 0.0f, 0.0f, 0.0f, 0.0f });
+
+                //Setup BackBuffer
+                ImGui::Begin("BackBuffer", reinterpret_cast<bool*>(true),
+                    ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoScrollbar);
+
+                s_Cache.Winsize = DirectX::GetWindowSize();
+                s_Cache.Window = ImGui::GetCurrentWindow();
+
+                //Set window properties
+                ImGui::SetWindowPos({ 0, 0 }, ImGuiCond_Always);
+                ImGui::SetWindowSize(s_Cache.Winsize, ImGuiCond_Always);
+
+                Esp::Render();
+
+                s_Cache.Window->DrawList->PushClipRectFullScreen();
+
+                ImGui::PopStyleColor();
+                ImGui::PopStyleVar();
+                ImGui::End();
+            });
     }
 
     // Render in a separate thread
