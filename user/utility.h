@@ -46,7 +46,7 @@ std::vector<Scene> GetAllScenes();
 il2cpp::Array<GameObject__Array> GetGameObjectsInActiveScene();
 il2cpp::Array<GameObject__Array> GetGameObjectsInSceneAt(int32_t index);
 std::vector<GameObject*> GetGameObjectsInAllScenes();
-il2cpp::Array<Object_1__Array> GetGameObjectsOfType(const char* module, const char* name);
+il2cpp::Array<Object_1__Array> GetGameObjectsOfType(const char* assemblyName, const char* className);
 
 template<typename E>
 std::vector<E> GetComponentsInActiveSceneOfType(const char* assemblyName, const char* className)

@@ -11,5 +11,4 @@ namespace Game {
 	extern OptionsHelpers** pOptionsHelpers;
 	extern RankHelpers** pRankHelpers;
 	extern SaveHelpers** pSaveHelpers;
-	extern Dictionary_2_Photon_Bolt_UniqueId_Photon_Bolt_BoltEntity_** pSceneObjects;
 }

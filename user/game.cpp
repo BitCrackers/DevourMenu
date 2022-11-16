@@ -9,5 +9,4 @@ namespace Game {
 	OptionsHelpers** pOptionsHelpers = nullptr;
 	RankHelpers** pRankHelpers = nullptr;
 	SaveHelpers** pSaveHelpers = nullptr;
-	Dictionary_2_Photon_Bolt_UniqueId_Photon_Bolt_BoltEntity_** pSceneObjects = nullptr;
 }
