@@ -9,4 +9,8 @@ namespace Game {
 	OptionsHelpers** pOptionsHelpers = nullptr;
 	RankHelpers** pRankHelpers = nullptr;
 	SaveHelpers** pSaveHelpers = nullptr;
+
+	il2cpp::Array<Object_1__Array> s_SurvivalInteractables = nullptr;
+	il2cpp::Array<Object_1__Array> s_KeyInteractables = nullptr;
+	il2cpp::Array<Object_1__Array> s_GoatInteractables = nullptr;
 }
