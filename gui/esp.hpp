@@ -23,7 +23,7 @@ typedef struct Drawing
 {
 	std::mutex m_DrawingMutex;
 
-	std::array<app::Vector3, Game::MAX_PLAYERS> m_Players;
+	std::array<app::NolanBehaviour*, Game::MAX_PLAYERS> m_Players;
 
 	app::Vector3 LocalPosition{ 0.0f, 0.0f, 0.f };
 } drawing_t;

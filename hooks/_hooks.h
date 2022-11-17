@@ -27,3 +27,8 @@ bool dSurvivalLobbyController_UnlockedCharacterSelected(SurvivalLobbyController*
 bool dLockedInteractable_CanInteract(LockedInteractable* __this, GameObject* character, MethodInfo* method);
 
 void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method);
+
+bool dCursor_get_visible(MethodInfo* method);
+void dCursor_set_visible(bool value, MethodInfo* method);
+CursorLockMode__Enum dCursor_get_lockState(MethodInfo* method);
+void dCursor_set_lockState(CursorLockMode__Enum value, MethodInfo* method);

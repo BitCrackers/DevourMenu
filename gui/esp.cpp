@@ -69,6 +69,14 @@ static void RenderBox(const ImVec2 top, const ImVec2 bottom, const float height,
 	}
 }
 
+static void DrawBox(float x, float y, float w, float h, ImVec4 color, float thickness)
+{
+	RenderLine(ImVec2(x, y), ImVec2(x + w, y), color, thickness);
+	RenderLine(ImVec2(x, y), ImVec2(x, y + h), color, thickness);
+	RenderLine(ImVec2(x + w, y), ImVec2(x + w, y + h), color, thickness);
+	RenderLine(ImVec2(x, y + h), ImVec2(x + w, y + h), color, thickness);
+}
+
 void Esp::Render()
 {
 	CurrentWindow = ImGui::GetCurrentWindow();
@@ -79,24 +87,24 @@ void Esp::Render()
 	synchronized(instance.m_DrawingMutex) {
 
 		// for each player
-		for (auto& it : instance.m_Players)
+		il2cpp::List playerList = (*Game::pInGameHelpers)->fields.m_Survival->fields.m_PlayerNolanBehaviours;
+		for (auto& player : playerList)
 		{
-			float width = GetScaleFromValue(35.0f);
-			float height = GetScaleFromValue(120.0f);
+			Vector3 playerPos = app::Transform_get_position(app::Component_get_transform((Component_1*)player, NULL), NULL);
+			Vector3 playerFootPos; playerFootPos.x = playerPos.x; playerFootPos.z = playerPos.z; playerFootPos.y = playerPos.y - 0.25f;
+			Vector3 playerHeadPos; playerHeadPos.x = playerPos.x; playerHeadPos.z = playerPos.z; playerHeadPos.y = playerPos.y + 1.75f;
 
-			app::Vector3 screenPosition = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), it, NULL);
-			ImVec2 top{ it.y + width, it.z };
-			ImVec2 bottom{ it.y - width, it.z - height };
+			Vector3 w2s_footpos = Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerFootPos, NULL);
+			Vector3 w2s_headpos = Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerHeadPos, NULL);
 
-			RenderBox(top, bottom, height, width, ImVec4 { 255.0f, 255.0f, 255.0f, 255.0f });
+			if (w2s_footpos.z > 0.f)
+			{
+				float height = (w2s_headpos.y - w2s_footpos.y);
+				float widthOffset = 2.f;
+				float width = height / widthOffset;
+
+				DrawBox(w2s_footpos.x - (width / 2), (float)app::Screen_get_height(NULL) - w2s_footpos.y - height, width, height, ImVec4(255.0f, 255.0f, 255.0f, 255.0f), 2.f);
+			}
 		}
-
-		// for each item
-
-		// for each key
-
-		// for each goat ?
-
-		// etc
 	}
 }

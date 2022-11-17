@@ -19,7 +19,7 @@
     <ClCompile Include="gui\menu.cpp">
       <Filter>gui</Filter>
     </ClCompile>
-    <ClCompile Include="gui\tabs\game_tab.cpp">
+    <ClCompile Include="gui\tabs\self_tab.cpp">
       <Filter>gui\tabs</Filter>
     </ClCompile>
     <ClCompile Include="gui\tabs\settings_tab.cpp">
@@ -30,9 +30,6 @@
     </ClCompile>
     <ClCompile Include="hooks\DirectX.cpp">
       <Filter>hooks</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\crc32.cpp">
-      <Filter>includes</Filter>
     </ClCompile>
     <ClCompile Include="includes\directx11.cpp">
       <Filter>includes</Filter>
@@ -127,6 +124,9 @@
     <ClCompile Include="hooks\NolanBehaviour.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
+    <ClCompile Include="Cursor.cpp">
+      <Filter>hooks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appdata\il2cpp-api-functions.h">
@@ -159,7 +159,7 @@
     <ClInclude Include="gui\theme.hpp">
       <Filter>gui</Filter>
     </ClInclude>
-    <ClInclude Include="gui\tabs\game_tab.h">
+    <ClInclude Include="gui\tabs\self_tab.h">
       <Filter>gui\tabs</Filter>
     </ClInclude>
     <ClInclude Include="gui\tabs\settings_tab.h">
@@ -167,9 +167,6 @@
     </ClInclude>
     <ClInclude Include="hooks\DirectX.h">
       <Filter>hooks</Filter>
-    </ClInclude>
-    <ClInclude Include="includes\crc32.h">
-      <Filter>includes</Filter>
     </ClInclude>
     <ClInclude Include="includes\directx11.h">
       <Filter>includes</Filter>

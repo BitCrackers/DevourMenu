@@ -2,7 +2,6 @@
 #include "main.h"
 #include "il2cpp-init.h"
 #include <VersionHelpers.h>
-#include "crc32.h"
 #include <shellapi.h>
 #include <iostream>
 #include "game.h"
@@ -20,21 +19,6 @@
 HMODULE hModule;
 HANDLE hUnloadEvent;
 
-std::string GetCRC32(std::filesystem::path filePath) {
-	CRC32 crc32;
-	char buffer[4096] = { 0 };
-
-	std::ifstream fin(filePath, std::ifstream::binary);
-
-	while (!fin.eof()) {
-		fin.read(&buffer[0], 4096);
-		auto readSize = fin.gcount();
-		crc32.add(&buffer[0], (size_t) readSize);
-	}
-	//LOG_DEBUG("CRC32 of \"" + filePath.u8string() + "\" is " + crc32.getHash());
-	return crc32.getHash();
-}
-
 bool GameVersionCheck() {
 	auto modulePath = getModulePath(NULL);
 	auto gameAssembly = modulePath.parent_path() / "GameAssembly.dll";
@@ -51,8 +35,6 @@ bool GameVersionCheck() {
 		MessageBox(NULL, L"Unable to locate GameAssembly.dll", L"DevourMenu", MB_OK | MB_ICONERROR | MB_SYSTEMMODAL);
 		return false;
 	}
-
-	std::string gameAssemblyCRC = GetCRC32(gameAssembly); //We won't use this, but it will log it
 
 	return true;
 }

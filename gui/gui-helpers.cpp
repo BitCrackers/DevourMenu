@@ -49,7 +49,7 @@ bool CustomListBoxInt(const char* label, int* value, const std::vector<const cha
 		return RightResponse;
 	}
 	SameLine(0, spacing);
-	Text(label);
+	ImGui::Text(label);
 
 	return response;
 }
@@ -95,7 +95,7 @@ bool CustomListBoxIntMultiple(const char* label, std::vector<std::pair<const cha
 	if (resetButton)
 	{
 		SameLine(0, spacing);
-		const bool resetResponse = Button(buttonLabel.c_str());
+		const bool resetResponse = ImGui::Button(buttonLabel.c_str());
 		if (resetResponse) {
 			for (auto& pair : *list)
 				pair.second = false;
@@ -120,7 +120,7 @@ bool SteppedSliderFloat(const char* label, float* v, float v_min, float v_max, f
 
 bool HotKey(uint8_t& key)
 {
-	Text("[ %s ]", KeyBinds::ToString(key));
+	ImGui::Text("[ %s ]", KeyBinds::ToString(key));
 
 	if (!IsItemHovered())
 		return false;

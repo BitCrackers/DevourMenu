@@ -63,6 +63,11 @@ DO_APP_FUNC(int32_t, Screen_get_width, (MethodInfo* method), "UnityEngine.CoreMo
 DO_APP_FUNC(int32_t, Screen_get_height, (MethodInfo* method), "UnityEngine.CoreModule, System.Int32 UnityEngine.Screen::get_height()");
 DO_APP_FUNC(bool, Screen_get_fullScreen, (MethodInfo* method), "UnityEngine.CoreModule, System.Boolean UnityEngine.Screen::get_fullScreen()");
 
+DO_APP_FUNC(bool, Cursor_get_visible, (MethodInfo* method), "UnityEngine.CoreModule, System.Boolean UnityEngine.Cursor::get_visible()");
+DO_APP_FUNC(void, Cursor_set_visible, (bool value, MethodInfo* method), "UnityEngine.CoreModule, System.Void UnityEngine.Cursor::set_visible(System.Boolean)");
+DO_APP_FUNC(CursorLockMode__Enum, Cursor_get_lockState, (MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.CursorLockMode UnityEngine.Cursor::get_lockState()");
+DO_APP_FUNC(void, Cursor_set_lockState, (CursorLockMode__Enum value, MethodInfo* method), "UnityEngine.CoreModule, System.Void UnityEngine.Cursor::set_lockState(UnityEngine.CursorLockMode)");
+
 DO_APP_FUNC(void, Debug_Log, (Object* message, MethodInfo* method), "UnityEngine.CoreModule, System.Void UnityEngine.Debug::Log(System.Object)");
 DO_APP_FUNC(void, Debug_LogError, (Object* message, MethodInfo* method), "UnityEngine.CoreModule, System.Void UnityEngine.Debug::LogError(System.Object)");
 DO_APP_FUNC(void, Debug_LogException, (Exception* exception, MethodInfo* method), "UnityEngine.CoreModule, System.Void UnityEngine.Debug::LogException(System.Exception)");

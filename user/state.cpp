@@ -31,8 +31,10 @@ void Settings::Load() {
 #ifdef _DEBUG
         JSON_TRYGET("ShowDebug", this->showDebugTab);
 #endif
-        JSON_TRYGET("AdjustByDPI", this->KeyBinds);
+        JSON_TRYGET("AdjustByDPI", this->AdjustByDPI);
         JSON_TRYGET("ShowUnityLogs", this->ShowUnityLogs);
+        JSON_TRYGET("ShowEsp", this->ShowEsp);
+        JSON_TRYGET("doorsUnlocked", this->doorsUnlocked);
     } catch (...) {
         DLog.Info("Unable to load settings.json");
     }
@@ -52,7 +54,9 @@ void Settings::Save() {
             {"ShowDebug", this->showDebugTab},
     #endif
             {"AdjustByDPI", this->AdjustByDPI},
-            {"ShowUnityLogs", this->ShowUnityLogs}
+            {"ShowUnityLogs", this->ShowUnityLogs},
+            {"ShowEsp", this->ShowEsp},
+            {"doorsUnlocked", this->doorsUnlocked}
         };
 
         std::ofstream outSettings(settingsPath);

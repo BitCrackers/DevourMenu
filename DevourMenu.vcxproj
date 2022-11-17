@@ -19,13 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="gui\esp.cpp" />
     <ClCompile Include="gui\gui-helpers.cpp" />
     <ClCompile Include="gui\RenderCmd.cpp" />
     <ClCompile Include="gui\Renderer.cpp" />
     <ClCompile Include="gui\tabs\debug_tab.cpp" />
     <ClCompile Include="gui\tabs\esp_tab.cpp" />
-    <ClCompile Include="gui\tabs\game_tab.cpp" />
+    <ClCompile Include="gui\tabs\self_tab.cpp" />
     <ClCompile Include="gui\tabs\settings_tab.cpp" />
     <ClCompile Include="hooks\AchievementHelpers.cpp" />
     <ClCompile Include="hooks\DirectX.cpp" />
@@ -41,20 +42,6 @@
       </PrecompiledHeaderFile>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_Version|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug_Version|x64'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Version|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release_Version|x64'">
-      </PrecompiledHeaderFile>
-    </ClCompile>
-    <ClCompile Include="includes\crc32.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_Version|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug_Version|x64'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </PrecompiledHeaderFile>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -265,12 +252,11 @@
     <ClInclude Include="gui\Renderer.hpp" />
     <ClInclude Include="gui\tabs\debug_tab.h" />
     <ClInclude Include="gui\tabs\esp_tab.h" />
-    <ClInclude Include="gui\tabs\game_tab.h" />
+    <ClInclude Include="gui\tabs\self_tab.h" />
     <ClInclude Include="gui\tabs\settings_tab.h" />
     <ClInclude Include="hooks\DirectX.h" />
     <ClInclude Include="hooks\SignatureScan.hpp" />
     <ClInclude Include="hooks\_hooks.h" />
-    <ClInclude Include="includes\crc32.h" />
     <ClInclude Include="includes\directx11.h" />
     <ClInclude Include="includes\detours\detours.h" />
     <ClInclude Include="framework\pch-il2cpp.h" />

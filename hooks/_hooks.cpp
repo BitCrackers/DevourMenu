@@ -84,6 +84,10 @@ void DetourInitilization() {
 	HOOKFUNC(SurvivalLobbyController_UnlockedCharacterSelected);
 	HOOKFUNC(LockedInteractable_CanInteract);
 	HOOKFUNC(NolanBehaviour_FixedUpdate);
+	HOOKFUNC(Cursor_get_visible);
+	HOOKFUNC(Cursor_set_visible);
+	HOOKFUNC(Cursor_get_lockState);
+	HOOKFUNC(Cursor_set_lockState);
 
 	if (!HookFunction(&(PVOID&)oPresent, dPresent, "D3D_PRESENT_FUNCTION")) return;
 
@@ -113,6 +117,10 @@ void DetourUninitialization()
 	UNHOOKFUNC(SurvivalLobbyController_UnlockedCharacterSelected);
 	UNHOOKFUNC(LockedInteractable_CanInteract);
 	UNHOOKFUNC(NolanBehaviour_FixedUpdate);
+	UNHOOKFUNC(Cursor_get_visible);
+	UNHOOKFUNC(Cursor_set_visible);
+	UNHOOKFUNC(Cursor_get_lockState);
+	UNHOOKFUNC(Cursor_set_lockState);
 
 	if (DetourDetach(&(PVOID&)oPresent, dPresent) != 0) return;
 

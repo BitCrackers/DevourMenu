@@ -1,7 +1,7 @@
 #include "pch-il2cpp.h"
 #include "menu.hpp"
 #include "imgui/imgui.h"
-#include "tabs/game_tab.h"
+#include "tabs/self_tab.h"
 #include "tabs/esp_tab.h"
 #include "tabs/settings_tab.h"
 #include "tabs/debug_tab.h"
@@ -25,7 +25,7 @@ namespace Menu {
 
 		if(!firstRender)
 			SettingsTab::Render();
-		GameTab::Render();
+		SelfTab::Render();
 		EspTab::Render();
 #ifdef _DEBUG
 		if (State.showDebugTab)

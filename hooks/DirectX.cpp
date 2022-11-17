@@ -263,7 +263,7 @@ HRESULT __stdcall dPresent(IDXGISwapChain* __this, UINT SyncInterval, UINT Flags
         ImGuiRenderer::Submit([]() { Menu::Render(); });
     }
 
-    if (State.ShowEsp)
+    if (State.ShowEsp && IsInGame())
     {
         ImGuiRenderer::Submit([&]()
             {
