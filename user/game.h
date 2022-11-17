@@ -11,8 +11,4 @@ namespace Game {
 	extern OptionsHelpers** pOptionsHelpers;
 	extern RankHelpers** pRankHelpers;
 	extern SaveHelpers** pSaveHelpers;
-
-	extern il2cpp::Array<Object_1__Array> s_SurvivalInteractables;
-	extern il2cpp::Array<Object_1__Array> s_KeyInteractables;
-	extern il2cpp::Array<Object_1__Array> s_GoatInteractables;
 }

@@ -8,22 +8,38 @@
 #include "DirectX.h"
 #include <imgui/imgui.h>
 
-static float GetScaleFromValue(float value)
+enum EspType
 {
-	float scale = DirectX::GetWindowSize().y / 1080.0f;
-	return (value * scale);
-}
+	UNKNOWN = 0,
+	PLAYER = 1,
+	ITEM = 2,
+	KEY = 3,
+	GOAT = 4
+};
+
+struct EspData
+{
+	app::Vector3 Position = { 0.0f, 0.0f, 0.f };
+	ImVec4 Color{ 0.0f, 0.0f, 0.0f, 0.0f };
+	std::string Name = std::string();
+	EspType Type = EspType::UNKNOWN;
+};
 
 static bool IsWithinScreenBounds(Vector2& pos)
 {
 	return pos.x < (float)app::Screen_get_width(nullptr) && pos.y < (float)app::Screen_get_height(nullptr);
 }
 
+static bool IsWithinScreenBounds(app::Vector3& pos)
+{
+	return pos.x < (float)app::Screen_get_width(nullptr) && pos.y < (float)app::Screen_get_height(nullptr) && pos.z > 0;
+}
+
 typedef struct Drawing
 {
 	std::mutex m_DrawingMutex;
 
-	std::array<app::NolanBehaviour*, Game::MAX_PLAYERS> m_Players;
+	std::vector<EspData> m_data;
 
 	app::Vector3 LocalPosition{ 0.0f, 0.0f, 0.f };
 } drawing_t;

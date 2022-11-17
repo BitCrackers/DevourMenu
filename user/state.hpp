@@ -27,6 +27,10 @@ public:
     bool doorsUnlocked = false;
 
     bool ShowEsp = false;
+    bool ShowEspPlayers = false;
+    bool ShowEspItems = false;
+    bool ShowEspKeys = false;
+    bool ShowEspGoats = false;
 
     void Load();
     void Save();

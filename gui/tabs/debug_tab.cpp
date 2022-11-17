@@ -49,41 +49,6 @@ namespace DebugTab {
 				app::NolanBehaviour_StartCarry(GetLocalPlayer(), convert_to_string(std::string(items[selectedItem])), NULL);
 			}
 
-			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
-
-			if (ImGui::Button("Debug Interactables"))
-			{
-				il2cpp::Array goatArray = GetGameObjectsOfType("Assembly-CSharp", "GoatInteractable");
-				il2cpp::Array keyArray = GetGameObjectsOfType("Assembly-CSharp", "KeyInteractable");
-				il2cpp::Array survivalArray = GetGameObjectsOfType("Assembly-CSharp", "SurvivalInteractable");
-
-				for (auto interactable : goatArray)
-				{
-					printf("Goat: %s\n", convert_from_string(((GoatInteractable*)interactable)->fields.prefabName).c_str());
-				}
-
-				for (auto interactable : keyArray)
-				{
-					printf("Key: %s\n", convert_from_string(app::KeyBehaviour_GetKeyName(((KeyInteractable*)interactable)->fields.keyBehaviour, NULL)).c_str());
-				}
-
-				for (auto interactable : survivalArray)
-				{
-					printf("Survival: %s\n", convert_from_string(((SurvivalInteractable*)interactable)->fields.prefabName).c_str());
-				}
-
-
-				printf("Active Scene: %s\n", GetActiveSceneName().c_str());
-			}
-
-			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
-
-			if (ImGui::Button("Debug GameObjects"))
-			{
-				auto gameObjects = GetGameObjectsInAllScenes();
-				printf("%llu GameObjects found.\n", gameObjects.size());
-			}
-
 			ImGui::EndTabItem();
 		}
 	}

@@ -106,39 +106,30 @@ void Esp::Render()
 				DrawBox(w2s_footpos.x - (width / 2), (float)app::Screen_get_height(NULL) - w2s_footpos.y - height, width, height, ImVec4(1.0f, 1.0f, 1.0f, 1.0f), 2.f);
 			}
 		}
-
-		// for each item
-		for (auto item : Game::s_SurvivalInteractables)
+		
+		for (auto& it : instance.m_data)
 		{
-			Vector3 itemPos = app::Transform_get_position(app::Component_get_transform((Component_1*)item, NULL), NULL);
+			app::Vector3 screenPos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), it.Position, NULL);
 
-			Vector3 w2sItemPos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), itemPos, NULL);
+			if (not IsWithinScreenBounds(screenPos))
+				continue;
 
-			if (w2sItemPos.z > 0.f)
-				RenderText(convert_from_string(((SurvivalInteractable*)item)->fields.prefabName).c_str(), ImVec2(w2sItemPos.x, (float)app::Screen_get_height(NULL) - w2sItemPos.y), ImVec4(1.f, 1.f, 1.f, 1.f));
+			switch (it.Type)
+			{
+			case EspType::ITEM:
+				if (State.ShowEspItems) RenderText(it.Name.c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
+				break;
+			case EspType::KEY:
+				if (State.ShowEspKeys) RenderText(it.Name.c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
+				break;
+			case EspType::GOAT:
+				if (State.ShowEspGoats) RenderText(it.Name.c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
+				break;
+
+			default:
+			case EspType::UNKNOWN:
+				continue;
+			}
 		}
-
-		// for each key
-		for (auto key : Game::s_KeyInteractables)
-		{
-			Vector3 keyPos = app::Transform_get_position(app::Component_get_transform((Component_1*)key, NULL), NULL);
-
-			Vector3 w2sKeyPos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), keyPos, NULL);
-
-			if (w2sKeyPos.z > 0.f)
-				RenderText(convert_from_string(app::KeyBehaviour_GetKeyName(((KeyInteractable*)key)->fields.keyBehaviour, NULL)).c_str(), ImVec2(w2sKeyPos.x, (float)app::Screen_get_height(NULL) - w2sKeyPos.y), ImVec4(0.15f, 0.97f, 0.99f, 1.f));
-		}
-
-		// THIS CRASHES WHEN GOATS LEAVE CAGE
-		// for each goat
-		//for (auto goat : Game::s_GoatInteractables)
-		//{
-		//	Vector3 goatPos = app::Transform_get_position(app::Component_get_transform((Component_1*)goat, NULL), NULL);
-
-		//	Vector3 w2sGoatPos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), goatPos, NULL);
-
-		//	if (w2sGoatPos.z > 0.f)
-		//		RenderText(convert_from_string(((GoatInteractable*)goat)->fields.prefabName).c_str(), ImVec2(w2sGoatPos.x, (float)app::Screen_get_height(NULL) - w2sGoatPos.y), ImVec4(0.f, 1.f, 0.f, 1.0f));
-		//}
 	}
 }

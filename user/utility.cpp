@@ -88,7 +88,7 @@ bool Object_1_IsNull(app::Object_1* obj)
 	return !Object_1_IsNotNull(obj);
 }
 
-NolanBehaviour* GetLocalPlayer()
+NolanBehaviour* GetLocalPlayer() // This doesn't seem to work properly anymore ?!
 {
 	for (auto p : GetAllPlayers())
 	{

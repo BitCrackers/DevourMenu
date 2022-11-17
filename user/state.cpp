@@ -34,6 +34,10 @@ void Settings::Load() {
         JSON_TRYGET("AdjustByDPI", this->AdjustByDPI);
         JSON_TRYGET("ShowUnityLogs", this->ShowUnityLogs);
         JSON_TRYGET("ShowEsp", this->ShowEsp);
+        JSON_TRYGET("ShowEspPlayers", this->ShowEspPlayers);
+        JSON_TRYGET("ShowEspItems", this->ShowEspItems);
+        JSON_TRYGET("ShowEspKeys", this->ShowEspKeys);
+        JSON_TRYGET("ShowEspGoats", this->ShowEspGoats);
         JSON_TRYGET("doorsUnlocked", this->doorsUnlocked);
     } catch (...) {
         DLog.Info("Unable to load settings.json");
@@ -56,6 +60,10 @@ void Settings::Save() {
             {"AdjustByDPI", this->AdjustByDPI},
             {"ShowUnityLogs", this->ShowUnityLogs},
             {"ShowEsp", this->ShowEsp},
+            {"ShowEspPlayers", this->ShowEspPlayers},
+            {"ShowEspItems", this->ShowEspItems},
+            {"ShowEspKeys", this->ShowEspKeys},
+            {"ShowEspGoats", this->ShowEspGoats},
             {"doorsUnlocked", this->doorsUnlocked}
         };
 
