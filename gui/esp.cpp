@@ -87,23 +87,26 @@ void Esp::Render()
 	synchronized(instance.m_DrawingMutex) {
 
 		// for each player
-		il2cpp::List playerList = (*Game::pInGameHelpers)->fields.m_Survival->fields.m_PlayerNolanBehaviours;
-		for (auto& player : playerList)
+		if (State.ShowEspPlayers)
 		{
-			Vector3 playerPos = app::Transform_get_position(app::Component_get_transform((Component_1*)player, NULL), NULL);
-			Vector3 playerFootPos; playerFootPos.x = playerPos.x; playerFootPos.z = playerPos.z; playerFootPos.y = playerPos.y - 0.25f;
-			Vector3 playerHeadPos; playerHeadPos.x = playerPos.x; playerHeadPos.z = playerPos.z; playerHeadPos.y = playerPos.y + 1.75f;
-
-			Vector3 w2s_footpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerFootPos, NULL);
-			Vector3 w2s_headpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerHeadPos, NULL);
-
-			if (w2s_footpos.z > 0.f)
+			il2cpp::List playerList = (*Game::pInGameHelpers)->fields.m_Survival->fields.m_PlayerNolanBehaviours;
+			for (auto& player : playerList)
 			{
-				float height = (w2s_headpos.y - w2s_footpos.y);
-				float widthOffset = 2.f;
-				float width = height / widthOffset;
+				Vector3 playerPos = app::Transform_get_position(app::Component_get_transform((Component_1*)player, NULL), NULL);
+				Vector3 playerFootPos; playerFootPos.x = playerPos.x; playerFootPos.z = playerPos.z; playerFootPos.y = playerPos.y - 0.25f;
+				Vector3 playerHeadPos; playerHeadPos.x = playerPos.x; playerHeadPos.z = playerPos.z; playerHeadPos.y = playerPos.y + 1.75f;
 
-				DrawBox(w2s_footpos.x - (width / 2), (float)app::Screen_get_height(NULL) - w2s_footpos.y - height, width, height, ImVec4(1.0f, 1.0f, 1.0f, 1.0f), 2.f);
+				Vector3 w2s_footpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerFootPos, NULL);
+				Vector3 w2s_headpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerHeadPos, NULL);
+
+				if (w2s_footpos.z > 0.f)
+				{
+					float height = (w2s_headpos.y - w2s_footpos.y);
+					float widthOffset = 2.f;
+					float width = height / widthOffset;
+
+					DrawBox(w2s_footpos.x - (width / 2), (float)app::Screen_get_height(NULL) - w2s_footpos.y - height, width, height, ImVec4(1.0f, 1.0f, 1.0f, 1.0f), 2.f);
+				}
 			}
 		}
 		
