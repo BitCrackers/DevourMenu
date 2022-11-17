@@ -78,7 +78,13 @@ LRESULT __stdcall dWndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
 
     KeyBinds::WndProc(uMsg, wParam, lParam);
 
-    if (KeyBinds::IsKeyPressed(State.KeyBinds.Toggle_Menu)) State.ShowMenu = !State.ShowMenu;
+    if (KeyBinds::IsKeyPressed(State.KeyBinds.Toggle_Menu))
+    {
+        State.ShowMenu = !State.ShowMenu;
+
+        if (State.ShowMenu && IsInGame()) app::UIHelpers_ShowMouseCursor(NULL);
+        if (not State.ShowMenu && IsInGame()) app::UIHelpers_HideMouseCursor(NULL);
+    }
 
     return CallWindowProc(oWndProc, hWnd, uMsg, wParam, lParam);
 }

@@ -8,6 +8,12 @@
 #include "DirectX.h"
 #include <imgui/imgui.h>
 
+static float GetScaleFromValue(float value)
+{
+	float scale = DirectX::GetWindowSize().y / 1080.0f;
+	return (value * scale);
+}
+
 static bool IsWithinScreenBounds(Vector2& pos)
 {
 	return pos.x < (float)app::Screen_get_width(nullptr) && pos.y < (float)app::Screen_get_height(nullptr);
@@ -17,9 +23,9 @@ typedef struct Drawing
 {
 	std::mutex m_DrawingMutex;
 
-	std::array<app::NolanBehaviour*, Game::MAX_PLAYERS> m_Players;
+	std::array<app::Vector3, Game::MAX_PLAYERS> m_Players;
 
-	ImVec2 LocalPosition{ 0.0f, 0.0f };
+	app::Vector3 LocalPosition{ 0.0f, 0.0f, 0.f };
 } drawing_t;
 
 class Esp

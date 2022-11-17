@@ -50,6 +50,8 @@ DO_APP_FUNC(int32_t, Camera_get_allCamerasCount, (MethodInfo* method), "UnityEng
 DO_APP_FUNC(Camera*, Camera_get_main, (MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.Camera UnityEngine.Camera::get_main()");
 DO_APP_FUNC(void, Camera_set_orthographicSize, (Camera* __this, float value, MethodInfo* method), "UnityEngine.CoreModule, System.Void UnityEngine.Camera::set_orthographicSize(System.Single)");
 DO_APP_FUNC(float, Camera_get_orthographicSize, (Camera* __this, MethodInfo* method), "UnityEngine.CoreModule, System.Single UnityEngine.Camera::get_orthographicSize()");
+DO_APP_FUNC(Vector3, Camera_WorldToScreenPoint, (Camera* __this, Vector3 position, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.Vector3 UnityEngine.Camera::WorldToScreenPoint(UnityEngine.Vector3)");
+DO_APP_FUNC(Vector3, Camera_ScreenToWorldPoint, (Camera* __this, Vector3 position, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.Vector3 UnityEngine.Camera::ScreenToWorldPoint(UnityEngine.Vector3)");
 
 DO_APP_FUNC(Color, SpriteRenderer_get_color, (SpriteRenderer* __this, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.Color UnityEngine.SpriteRenderer::get_color()");
 
@@ -67,6 +69,7 @@ DO_APP_FUNC(void, Debug_LogException, (Exception* exception, MethodInfo* method)
 DO_APP_FUNC(void, Debug_LogWarning, (Object* message, MethodInfo* method), "UnityEngine.CoreModule, System.Void UnityEngine.Debug::LogWarning(System.Object)");
 
 // DEVOUR
+DO_APP_FUNC(void, NolanBehaviour_FixedUpdate, (NolanBehaviour* __this, MethodInfo* method), "Assembly-CSharp, System.Void NolanBehaviour::FixedUpdate()");
 DO_APP_FUNC(void, NolanBehaviour_StartCarry, (NolanBehaviour* __this, String* objectName, MethodInfo* method), "Assembly-CSharp, System.Void NolanBehaviour::StartCarry(System.String)");
 DO_APP_FUNC(void, NolanBehaviour_PlopObject, (NolanBehaviour* __this, MethodInfo* method), "Assembly-CSharp, System.Void NolanBehaviour::PlopObject()");
 
@@ -76,13 +79,17 @@ DO_APP_FUNC(bool, AchievementHelpers_ShowHardModeUnlocked, (AchievementHelpers* 
 DO_APP_FUNC(bool, AchievementHelpers_ShowHardRobeUnlocked, (AchievementHelpers* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean AchievementHelpers::ShowHardRobeUnlocked()");
 DO_APP_FUNC(bool, AchievementHelpers_ShowNightmareModeUnlocked, (AchievementHelpers* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean AchievementHelpers::ShowNightmareModeUnlocked()");
 
+DO_APP_FUNC(bool, OptionsHelpers_IsRobeUnlocked, (OptionsHelpers* __this, String* robe, MethodInfo* method), "Assembly-CSharp, System.Boolean OptionsHelpers::IsRobeUnlocked(System.String)");
+
+DO_APP_FUNC(void, UIHelpers_HideMouseCursor, (MethodInfo* method), "Assembly-CSharp, System.Void UIHelpers::HideMouseCursor()");
+DO_APP_FUNC(void, UIHelpers_ShowMouseCursor, (MethodInfo* method), "Assembly-CSharp, System.Void UIHelpers::ShowMouseCursor()");
+
 DO_APP_FUNC(UIOutfitSelectionType*, Menu_2_SetupOutfit, (MenuM_2* __this, CharacterOutfit* outfit, MethodInfo* method), "Assembly-CSharp, UIOutfitSelectionType Horror.Menu::SetupOutfit(CharacterOutfit)");
 DO_APP_FUNC(UIPerkSelectionType*, Menu_2_SetupPerk, (MenuM_2* __this, CharacterPerk* perk, MethodInfo* method), "Assembly-CSharp, UIPerkSelectionType Horror.Menu::SetupPerk(CharacterPerk)");
 DO_APP_FUNC(UIFlashlightSelectionType*, Menu_2_SetupFlashlight, (MenuM_2* __this, CharacterFlashlight* flashlight, MethodInfo* method), "Assembly-CSharp, UIFlashlightSelectionType Horror.Menu::SetupFlashlight(CharacterFlashlight)");
 DO_APP_FUNC(UIPetSelectionType*, Menu_2_SetupPet, (MenuM_2* __this, CharacterPet* pet, MethodInfo* method), "Assembly-CSharp, UIPetSelectionType Horror.Menu::SetupPet(CharacterPet)");
 
 DO_APP_FUNC(bool, OptionsHelpers_IsCharacterUnlocked, (OptionsHelpers* __this, String* prefab, MethodInfo* method), "Assembly-CSharp, System.Boolean OptionsHelpers::IsCharacterUnlocked(System.String)");
-DO_APP_FUNC(bool, OptionsHelpers_IsRobeUnlocked, (OptionsHelpers* __this, String* robe, MethodInfo* method), "Assembly-CSharp, System.Boolean OptionsHelpers::IsRobeUnlocked(System.String)");
 
 DO_APP_FUNC(bool, SurvivalLobbyController_CanReady, (SurvivalLobbyController* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean SurvivalLobbyController::CanReady()");
 DO_APP_FUNC(bool, SurvivalLobbyController_PlayableCharacterSelected, (SurvivalLobbyController* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean SurvivalLobbyController::PlayableCharacterSelected()");

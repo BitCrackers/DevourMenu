@@ -31,6 +31,7 @@
     <ClCompile Include="hooks\DirectX.cpp" />
     <ClCompile Include="hooks\LockedInteractable.cpp" />
     <ClCompile Include="hooks\Menu_2.cpp" />
+    <ClCompile Include="hooks\NolanBehaviour.cpp" />
     <ClCompile Include="hooks\OptionsHelpers.cpp" />
     <ClCompile Include="hooks\SurvivalLobbyController.cpp" />
     <ClCompile Include="hooks\UnityDebug.cpp" />

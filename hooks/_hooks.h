@@ -25,3 +25,5 @@ bool dSurvivalLobbyController_PlayableCharacterSelected(SurvivalLobbyController*
 bool dSurvivalLobbyController_UnlockedCharacterSelected(SurvivalLobbyController* __this, MethodInfo* method);
 
 bool dLockedInteractable_CanInteract(LockedInteractable* __this, GameObject* character, MethodInfo* method);
+
+void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method);

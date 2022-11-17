@@ -77,38 +77,26 @@ void Esp::Render()
 
 	// Lock our mutex when we render (this will unlock when it goes out of scope)
 	synchronized(instance.m_DrawingMutex) {
+
+		// for each player
 		for (auto& it : instance.m_Players)
 		{
-			//if ()
-			//{
-			//	/////////////////////////////////
-			//	//// Box ////////////////////////
-			//	/////////////////////////////////
-			//	if (State.ShowEsp_Box)
-			//	{
+			float width = GetScaleFromValue(35.0f);
+			float height = GetScaleFromValue(120.0f);
 
-			//		RenderBox(top, bottom, height, width, it.Color);
-			//	}
-			//	/////////////////////////////////
-			//	//// Distance ///////////////////
-			//	/////////////////////////////////
-			//	if (State.ShowEsp_Distance)
-			//	{
-			//		const ImVec2 position{ it.Position.x, it.Position.y + 15.0f * State.dpiScale };
+			app::Vector3 screenPosition = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), it, NULL);
+			ImVec2 top{ it.y + width, it.z };
+			ImVec2 bottom{ it.y - width, it.z - height };
 
-			//		char distance[32];
-			//		sprintf_s(distance, "[%.0fm]", it.Distance);
-
-			//		RenderText(distance, position, it.Color);
-			//	}
-			//	/////////////////////////////////
-			//	//// Tracers ////////////////////
-			//	/////////////////////////////////
-			//	if (State.ShowEsp_Tracers)
-			//	{
-			//		RenderLine(instance.LocalPosition, it.Position, it.Color, true);
-			//	}
-			//}
+			RenderBox(top, bottom, height, width, ImVec4 { 255.0f, 255.0f, 255.0f, 255.0f });
 		}
+
+		// for each item
+
+		// for each key
+
+		// for each goat ?
+
+		// etc
 	}
 }
