@@ -125,8 +125,8 @@ void Esp::Render()
 			case EspType::KEY:
 				if (State.ShowEspKeys) RenderText(it.Name.c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
 				break;
-			case EspType::GOAT:
-				if (State.ShowEspGoats) RenderText(it.Name.c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
+			case EspType::ANIMAL:
+				if (State.ShowEspAnimals) RenderText(it.Name.c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
 				break;
 
 			default:

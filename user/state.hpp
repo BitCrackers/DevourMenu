@@ -30,7 +30,7 @@ public:
     bool ShowEspPlayers = false;
     bool ShowEspItems = false;
     bool ShowEspKeys = false;
-    bool ShowEspGoats = false;
+    bool ShowEspAnimals = false;
 
     void Load();
     void Save();

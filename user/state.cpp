@@ -37,7 +37,7 @@ void Settings::Load() {
         JSON_TRYGET("ShowEspPlayers", this->ShowEspPlayers);
         JSON_TRYGET("ShowEspItems", this->ShowEspItems);
         JSON_TRYGET("ShowEspKeys", this->ShowEspKeys);
-        JSON_TRYGET("ShowEspGoats", this->ShowEspGoats);
+        JSON_TRYGET("ShowEspAnimals", this->ShowEspAnimals);
         JSON_TRYGET("doorsUnlocked", this->doorsUnlocked);
     } catch (...) {
         DLog.Info("Unable to load settings.json");
@@ -63,7 +63,7 @@ void Settings::Save() {
             {"ShowEspPlayers", this->ShowEspPlayers},
             {"ShowEspItems", this->ShowEspItems},
             {"ShowEspKeys", this->ShowEspKeys},
-            {"ShowEspGoats", this->ShowEspGoats},
+            {"ShowEspAnimals", this->ShowEspAnimals},
             {"doorsUnlocked", this->doorsUnlocked}
         };
 

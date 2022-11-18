@@ -49,13 +49,13 @@ void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method)
 			}
 		}
 
-		if (State.ShowEspGoats)
+		if (State.ShowEspAnimals)
 		{
 			il2cpp::Array s_GoatInteractables = GetGameObjectsOfType("Assembly-CSharp", "GoatInteractable");
 			for (auto* goat : s_GoatInteractables)
 			{
 				EspData goatData;
-				goatData.Type = EspType::GOAT;
+				goatData.Type = EspType::ANIMAL;
 				goatData.Name = convert_from_string(((GoatInteractable*)goat)->fields.prefabName).c_str();
 				goatData.Color = ImVec4(0.f, 1.f, 0.f, 1.f);
 				goatData.Position = app::Transform_get_position(app::Component_get_transform((Component_1*)goat, NULL), NULL);

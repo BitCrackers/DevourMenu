@@ -14,7 +14,7 @@ enum EspType
 	PLAYER = 1,
 	ITEM = 2,
 	KEY = 3,
-	GOAT = 4
+	ANIMAL = 4
 };
 
 struct EspData
