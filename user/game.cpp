@@ -9,4 +9,13 @@ namespace Game {
 	OptionsHelpers** pOptionsHelpers = nullptr;
 	RankHelpers** pRankHelpers = nullptr;
 	SaveHelpers** pSaveHelpers = nullptr;
+
+	Scene DontSaveOnLoadScene = { 0 };
+
+	void GetGameData()
+	{
+		while (not (*Game::pOptionsHelpers)) { /* wait for static pointer to be available */ }
+		DontSaveOnLoadScene = app::GameObject_get_scene((GameObject*)(*Game::pOptionsHelpers), NULL);
+		
+	}
 }

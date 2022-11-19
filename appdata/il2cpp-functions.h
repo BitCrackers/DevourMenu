@@ -15,6 +15,7 @@ DO_APP_FUNC(void, Object_DestroyImmediate, (Object_1* obj, MethodInfo* method), 
 DO_APP_FUNC(Object_1*, Object_1_FindObjectOfType, (Type* type, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.Object UnityEngine.Object::FindObjectOfType(System.Type)");
 DO_APP_FUNC(Object_1__Array*, Object_1_FindObjectsOfType, (Type* type, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.Object[] UnityEngine.Object::FindObjectsOfType(System.Type)");
 DO_APP_FUNC(bool, Object_1_op_Implicit, (Object_1* exists, MethodInfo* method), "UnityEngine.CoreModule, System.Boolean UnityEngine.Object::op_Implicit(UnityEngine.Object)");
+DO_APP_FUNC(String*, Object_1_get_name, (Object_1* __this, MethodInfo* method), "UnityEngine.CoreModule, System.String UnityEngine.Object::get_name()");
 
 DO_APP_FUNC(Transform*, GameObject_get_transform, (GameObject* __this, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.Transform UnityEngine.GameObject::get_transform()");
 DO_APP_FUNC(int32_t, GameObject_get_layer, (GameObject* __this, MethodInfo* method), "UnityEngine.CoreModule, System.Int32 UnityEngine.GameObject::get_layer()");
@@ -22,6 +23,8 @@ DO_APP_FUNC(void, GameObject_set_layer, (GameObject* __this, int32_t value, Meth
 DO_APP_FUNC(Component_1*, GameObject_GetComponent, (GameObject* __this, Type* type, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.Component UnityEngine.GameObject::GetComponent(System.Type)");
 DO_APP_FUNC(Component_1__Array*, GameObject_GetComponents, (GameObject* __this, Type* type, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.Component[] UnityEngine.GameObject::GetComponents(System.Type)");
 DO_APP_FUNC(Component_1*, GameObject_GetComponentByName, (GameObject* __this, String* type, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.Component UnityEngine.GameObject::GetComponentByName(System.String)");
+DO_APP_FUNC(Scene, GameObject_get_scene, (GameObject* __this, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.SceneManagement.Scene UnityEngine.GameObject::get_scene()");
+DO_APP_FUNC(String*, GameObject_get_tag, (GameObject* __this, MethodInfo* method), "UnityEngine.CoreModule, System.String UnityEngine.GameObject::get_tag()");
 
 DO_APP_FUNC(Transform*, Transform_GetRoot, (Transform* __this, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.Transform UnityEngine.Transform::GetRoot()");
 DO_APP_FUNC(Vector3, Transform_get_position, (Transform* __this, MethodInfo* method), "UnityEngine.CoreModule, UnityEngine.Vector3 UnityEngine.Transform::get_position()");

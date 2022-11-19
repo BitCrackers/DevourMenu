@@ -11,4 +11,8 @@ namespace Game {
 	extern OptionsHelpers** pOptionsHelpers;
 	extern RankHelpers** pRankHelpers;
 	extern SaveHelpers** pSaveHelpers;
+
+	extern Scene DontSaveOnLoadScene;
+
+	extern void GetGameData();
 }

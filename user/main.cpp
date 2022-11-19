@@ -96,6 +96,7 @@ void Run(LPVOID lpParam) {
 	GAME_STATIC_POINTER(Game::pRankHelpers, app::RankHelpers, instance);
 	GAME_STATIC_POINTER(Game::pSaveHelpers, app::SaveHelpers, instance);
 
+	Game::GetGameData();
 	DetourInitilization();
 
 #if _DEBUG
