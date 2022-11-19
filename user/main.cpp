@@ -73,7 +73,7 @@ void Run(LPVOID lpParam) {
 		ss << "\n\tDevourMenu - " << __DATE__ << " - " << __TIME__ << std::endl; // Log devourmenu info
 		ss << "\tBuild: " << _CONFIGURATION_NAME << std::endl;
 		ss << "\tCommit: " << GetGitCommit() << " - " << GetGitBranch() << std::endl; // Log git info
-		ss << "\tDEVOUR Version: " << getGameVersion() << std::endl; // Log among us info
+		ss << "\tDEVOUR Version: " << getGameVersion() << std::endl; // Log devour info
 		LOG_INFO(ss.str());
 	}
 	State.Load();

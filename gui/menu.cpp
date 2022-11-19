@@ -21,7 +21,7 @@ namespace Menu {
 			Menu::Init();
 
 		ImGui::Begin("DevourMenu", &State.ShowMenu, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize);
-		ImGui::BeginTabBar("AmongUs#TopBar", ImGuiTabBarFlags_NoTabListScrollingButtons);
+		ImGui::BeginTabBar("Devour#TopBar", ImGuiTabBarFlags_NoTabListScrollingButtons);
 
 		if(!firstRender)
 			SettingsTab::Render();
