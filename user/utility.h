@@ -41,6 +41,7 @@ il2cpp::List<List_1_NolanBehaviour_> GetAllPlayers();
 il2cpp::Array<DoorBehaviour__Array> GetAllDoors();
 bool IsOwner(NolanBehaviour * player);
 bool IsInGame();
+bool IsSequencePlaying();
 std::string GetActiveSceneName();
 std::vector<Scene> GetAllScenes();
 il2cpp::Array<GameObject__Array> GetGameObjectsInActiveScene();

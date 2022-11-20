@@ -118,6 +118,13 @@ bool IsInGame()
 	return (*Game::pOptionsHelpers)->fields.inGame;
 }
 
+bool IsSequencePlaying()
+{
+	return app::Survival_IsEndingPlaying((*Game::pInGameHelpers)->fields.m_Survival, NULL)
+		|| app::Survival_IsJumpScarePlaying((*Game::pInGameHelpers)->fields.m_Survival, NULL)
+		|| app::Survival_StartingToPlayFailEnding((*Game::pInGameHelpers)->fields.m_Survival, NULL);
+}
+
 std::string GetActiveSceneName()
 {
 	auto activeScene = app::SceneManager_GetActiveScene(NULL);

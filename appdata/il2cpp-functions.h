@@ -111,3 +111,7 @@ DO_APP_FUNC(String*, PrefabId_ToString, (PrefabId__Boxed* __this, MethodInfo* me
 DO_APP_FUNC(String*, KeyBehaviour_GetKeyName, (KeyBehaviour* __this, MethodInfo* method), "Assembly-CSharp, System.String KeyBehaviour::GetKeyName()");
 
 DO_APP_FUNC(String*, DoorBehaviour_KeyName, (DoorBehaviour* __this, MethodInfo* method), "Assembly-CSharp, System.String Horror.DoorBehaviour::KeyName()");
+
+DO_APP_FUNC(bool, Survival_IsEndingPlaying, (Survival* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean Survival::IsEndingPlaying()");
+DO_APP_FUNC(bool, Survival_IsJumpScarePlaying, (Survival* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean Survival::IsJumpScarePlaying()");
+DO_APP_FUNC(bool, Survival_StartingToPlayFailEnding, (Survival* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean Survival::StartingToPlayFailEnding()");
