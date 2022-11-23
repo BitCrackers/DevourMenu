@@ -7,8 +7,11 @@
 static int espTimerLimit = 25, espTimer = 0;
 void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method)
 {
-	// collect all the game data ingame we need for ESP every 10 seconds since it's a resource heavy task
-	if (IsInGame() && espTimer >= espTimerLimit)
+	// collect all the game data ingame
+	if (IsInGame()
+		&& not IsSequencePlaying()
+		&& State.ShowEsp
+		&& espTimer >= espTimerLimit)
 	{
 		drawing_t& instance = Esp::GetDrawing();
 		synchronized(instance.m_DrawingMutex) {
@@ -20,19 +23,39 @@ void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method)
 
 		for (auto& object : gameObjects)
 		{
+			if (State.ShowEspPlayers && IsOnline())
+			{
+				if (convert_from_string(app::GameObject_get_tag(object, NULL)).compare("Player") == 0)
+				{
+					DissonancePlayerTracking* component = (DissonancePlayerTracking*)app::GameObject_GetComponentByName(object, convert_to_string(std::string("DissonancePlayerTracking")), NULL);
+					if (component && not IsLocalPlayer(component))
+					{
+						EspData playerData;
+						playerData.Type = EspType::PLAYER;
+						playerData.Name = convert_from_string(Object_1_get_name((Object_1*)object, NULL));
+						playerData.Color = ImVec4(1.f, 1.f, 1.f, 1.f);
+						playerData.Position = app::Transform_get_position(app::GameObject_get_transform(object, NULL), NULL);
+
+						synchronized(instance.m_DrawingMutex) {
+							instance.m_data.push_back(playerData);
+						}
+					}
+				}
+			}
+
 			if (State.ShowEspItems)
 			{
 				auto component = app::GameObject_GetComponentByName(object, convert_to_string(std::string("SurvivalInteractable")), NULL);
 				if (component)
 				{
-					EspData espData;
-					espData.Type = EspType::ITEM;
-					espData.Name = convert_from_string(((SurvivalInteractable*)component)->fields.prefabName).c_str();
-					espData.Color = ImVec4(1.f, 1.f, 1.f, 1.f);
-					espData.Position = app::Transform_get_position(app::Component_get_transform(component, NULL), NULL);
+					EspData itemData;
+					itemData.Type = EspType::ITEM;
+					itemData.Name = convert_from_string(((SurvivalInteractable*)component)->fields.prefabName);
+					itemData.Color = ImVec4(1.f, 1.f, 1.f, 1.f);
+					itemData.Position = app::Transform_get_position(app::Component_get_transform(component, NULL), NULL);
 
 					synchronized(instance.m_DrawingMutex) {
-						instance.m_data.push_back(espData);
+						instance.m_data.push_back(itemData);
 					}
 				}
 			}
@@ -44,7 +67,7 @@ void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method)
 				{
 					EspData keyData;
 					keyData.Type = EspType::KEY;
-					keyData.Name = convert_from_string(app::KeyBehaviour_GetKeyName(((KeyInteractable*)component)->fields.keyBehaviour, NULL)).c_str();
+					keyData.Name = convert_from_string(app::KeyBehaviour_GetKeyName(((KeyInteractable*)component)->fields.keyBehaviour, NULL));
 					keyData.Color = ImVec4(0.15f, 0.97f, 0.99f, 1.f);
 					keyData.Position = app::Transform_get_position(app::Component_get_transform(component, NULL), NULL);
 
@@ -59,14 +82,14 @@ void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method)
 				auto component = app::GameObject_GetComponentByName(object, convert_to_string(std::string("GoatInteractable")), NULL);
 				if (component)
 				{
-					EspData goatData;
-					goatData.Type = EspType::ANIMAL;
-					goatData.Name = convert_from_string(((GoatInteractable*)component)->fields.prefabName).c_str();
-					goatData.Color = ImVec4(0.f, 1.f, 0.f, 1.f);
-					goatData.Position = app::Transform_get_position(app::Component_get_transform(component, NULL), NULL);
+					EspData animalData;
+					animalData.Type = EspType::ANIMAL;
+					animalData.Name = convert_from_string(((GoatInteractable*)component)->fields.prefabName);
+					animalData.Color = ImVec4(0.f, 1.f, 0.f, 1.f);
+					animalData.Position = app::Transform_get_position(app::Component_get_transform(component, NULL), NULL);
 
 					synchronized(instance.m_DrawingMutex) {
-						instance.m_data.push_back(goatData);
+						instance.m_data.push_back(animalData);
 					}
 				}
 			}

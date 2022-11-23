@@ -125,6 +125,33 @@ bool IsSequencePlaying()
 		|| app::Survival_StartingToPlayFailEnding((*Game::pInGameHelpers)->fields.m_Survival, NULL);
 }
 
+bool IsSinglePlayer()
+{
+	return app::BoltNetwork_get_IsSinglePlayer(NULL);
+}
+
+bool IsOnline()
+{
+	return not app::BoltNetwork_get_IsSinglePlayer(NULL);
+}
+
+bool IsHost()
+{
+	return app::BoltNetwork_get_IsServer(NULL);
+}
+
+bool IsLocalPlayer(DissonancePlayerTracking* player)
+{
+	auto boltEntity = app::EntityBehaviour_get_entity((EntityBehaviour*)player, NULL);
+
+	if (not boltEntity
+		|| not app::BoltEntity_get_IsAttached(boltEntity, NULL)
+		|| not app::BoltEntity_get_IsOwner(boltEntity, NULL))
+		return false;
+
+	return true;
+}
+
 std::string GetActiveSceneName()
 {
 	auto activeScene = app::SceneManager_GetActiveScene(NULL);

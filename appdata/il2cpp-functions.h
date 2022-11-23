@@ -105,9 +105,6 @@ DO_APP_FUNC(bool, SurvivalLobbyController_UnlockedCharacterSelected, (SurvivalLo
 
 DO_APP_FUNC(bool, LockedInteractable_CanInteract, (LockedInteractable* __this, GameObject* character, MethodInfo* method), "Assembly-CSharp, System.Boolean LockedInteractable::CanInteract(UnityEngine.GameObject)");
 
-DO_APP_FUNC(void, PrefabId__ctor, (PrefabId__Boxed* __this, int32_t value, MethodInfo* method), "bolt, System.Void Photon.Bolt.PrefabId::.ctor(System.Int32)");
-DO_APP_FUNC(String*, PrefabId_ToString, (PrefabId__Boxed* __this, MethodInfo* method), "bolt, System.String Photon.Bolt.PrefabId::ToString()");
-
 DO_APP_FUNC(String*, KeyBehaviour_GetKeyName, (KeyBehaviour* __this, MethodInfo* method), "Assembly-CSharp, System.String KeyBehaviour::GetKeyName()");
 
 DO_APP_FUNC(String*, DoorBehaviour_KeyName, (DoorBehaviour* __this, MethodInfo* method), "Assembly-CSharp, System.String Horror.DoorBehaviour::KeyName()");
@@ -115,3 +112,18 @@ DO_APP_FUNC(String*, DoorBehaviour_KeyName, (DoorBehaviour* __this, MethodInfo* 
 DO_APP_FUNC(bool, Survival_IsEndingPlaying, (Survival* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean Survival::IsEndingPlaying()");
 DO_APP_FUNC(bool, Survival_IsJumpScarePlaying, (Survival* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean Survival::IsJumpScarePlaying()");
 DO_APP_FUNC(bool, Survival_StartingToPlayFailEnding, (Survival* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean Survival::StartingToPlayFailEnding()");
+
+// BOLT
+DO_APP_FUNC(void, PrefabId__ctor, (PrefabId__Boxed* __this, int32_t value, MethodInfo* method), "bolt, System.Void Photon.Bolt.PrefabId::.ctor(System.Int32)");
+DO_APP_FUNC(String*, PrefabId_ToString, (PrefabId__Boxed* __this, MethodInfo* method), "bolt, System.String Photon.Bolt.PrefabId::ToString()");
+
+DO_APP_FUNC(bool, BoltNetwork_get_IsClient, (MethodInfo* method), "bolt, System.Boolean Photon.Bolt.BoltNetwork::get_IsClient()");
+DO_APP_FUNC(bool, BoltNetwork_get_IsServer, (MethodInfo* method), "bolt, System.Boolean Photon.Bolt.BoltNetwork::get_IsServer()");
+DO_APP_FUNC(bool, BoltNetwork_get_IsSinglePlayer, (MethodInfo* method), "bolt, System.Boolean Photon.Bolt.BoltNetwork::get_IsSinglePlayer()");
+
+DO_APP_FUNC(BoltEntity*, EntityBehaviour_get_entity, (EntityBehaviour* __this, MethodInfo* method), "bolt, Photon.Bolt.BoltEntity Photon.Bolt.EntityBehaviour::get_entity()");
+
+DO_APP_FUNC(Entity*, BoltEntity_get_Entity, (BoltEntity* __this, MethodInfo* method), "bolt, Photon.Bolt.Entity Photon.Bolt.BoltEntity::get_Entity()");
+DO_APP_FUNC(bool, BoltEntity_get_IsAttached, (BoltEntity* __this, MethodInfo* method), "bolt, System.Boolean Photon.Bolt.BoltEntity::get_IsAttached()");
+DO_APP_FUNC(bool, BoltEntity_get_IsOwner, (BoltEntity* __this, MethodInfo* method), "bolt, System.Boolean Photon.Bolt.BoltEntity::get_IsOwner()");
+DO_APP_FUNC(bool, BoltEntity_get_IsFrozen, (BoltEntity* __this, MethodInfo* method), "bolt, System.Boolean Photon.Bolt.BoltEntity::get_IsFrozen()");

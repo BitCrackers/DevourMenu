@@ -16,6 +16,5 @@ namespace Game {
 	{
 		while (not (*Game::pOptionsHelpers)) { /* wait for static pointer to be available */ }
 		DontSaveOnLoadScene = app::GameObject_get_scene((GameObject*)(*Game::pOptionsHelpers), NULL);
-		
 	}
 }

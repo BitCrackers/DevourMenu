@@ -85,31 +85,6 @@ void Esp::Render()
 
 	// Lock our mutex when we render (this will unlock when it goes out of scope)
 	synchronized(instance.m_DrawingMutex) {
-
-		// for each player
-		if (State.ShowEspPlayers)
-		{
-			il2cpp::List playerList = (*Game::pInGameHelpers)->fields.m_Survival->fields.m_PlayerNolanBehaviours;
-			for (auto& player : playerList)
-			{
-				Vector3 playerPos = app::Transform_get_position(app::Component_get_transform((Component_1*)player, NULL), NULL);
-				Vector3 playerFootPos; playerFootPos.x = playerPos.x; playerFootPos.z = playerPos.z; playerFootPos.y = playerPos.y - 0.25f;
-				Vector3 playerHeadPos; playerHeadPos.x = playerPos.x; playerHeadPos.z = playerPos.z; playerHeadPos.y = playerPos.y + 1.75f;
-
-				Vector3 w2s_footpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerFootPos, NULL);
-				Vector3 w2s_headpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerHeadPos, NULL);
-
-				if (w2s_footpos.z > 0.f)
-				{
-					float height = (w2s_headpos.y - w2s_footpos.y);
-					float widthOffset = 2.f;
-					float width = height / widthOffset;
-
-					DrawBox(w2s_footpos.x - (width / 2), (float)app::Screen_get_height(NULL) - w2s_footpos.y - height, width, height, ImVec4(1.0f, 1.0f, 1.0f, 1.0f), 2.f);
-				}
-			}
-		}
-		
 		for (auto& it : instance.m_data)
 		{
 			app::Vector3 screenPos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), it.Position, NULL);
@@ -119,19 +94,39 @@ void Esp::Render()
 
 			switch (it.Type)
 			{
+			case EspType::PLAYER:
+				if (not State.ShowEspPlayers) break;
+				Vector3 playerFootPos; playerFootPos.x = it.Position.x; playerFootPos.z = it.Position.z; playerFootPos.y = it.Position.y - 0.25f;
+				Vector3 playerHeadPos; playerHeadPos.x = it.Position.x; playerHeadPos.z = it.Position.z; playerHeadPos.y = it.Position.y + 1.75f;
+				Vector3 playerNamePos; playerNamePos.x = it.Position.x; playerNamePos.z = it.Position.z; playerNamePos.y = it.Position.y - 0.5f;
+
+				Vector3 w2s_footpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerFootPos, NULL);
+				Vector3 w2s_headpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerHeadPos, NULL);
+				Vector3 w2s_namepos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerNamePos, NULL);
+
+				if (w2s_footpos.z > 0.f)
+				{
+					float height = (w2s_headpos.y - w2s_footpos.y);
+					float widthOffset = 2.f;
+					float width = height / widthOffset;
+
+					DrawBox(w2s_footpos.x - (width / 2), (float)app::Screen_get_height(NULL) - w2s_footpos.y - height, width, height, ImVec4(1.0f, 1.0f, 1.0f, 1.0f), 2.f);
+					RenderText(it.Name.substr(8, it.Name.size() - 7).c_str(), ImVec2(w2s_namepos.x, (float)app::Screen_get_height(NULL) - w2s_namepos.y), it.Color);
+				}
+				break;
 			case EspType::ITEM:
-				if (State.ShowEspItems) RenderText(it.Name.c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
+				if (State.ShowEspItems) RenderText(it.Name.substr(8).c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
 				break;
 			case EspType::KEY:
 				if (State.ShowEspKeys) RenderText(it.Name.c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
 				break;
 			case EspType::ANIMAL:
-				if (State.ShowEspAnimals) RenderText(it.Name.c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
+				if (State.ShowEspAnimals) RenderText(it.Name.substr(8).c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
 				break;
 
 			default:
 			case EspType::UNKNOWN:
-				continue;
+				break;
 			}
 		}
 	}
