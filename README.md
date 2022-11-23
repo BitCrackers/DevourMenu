@@ -25,6 +25,11 @@ Will automatically be loaded by the Game itself if the dll is in the game direct
 ### Default Hotkeys
 - Show Menu - DELETE
 
+## Screenshot
+<p align="center">
+   <img src="screenshot.png">
+</p>
+
 ## Special Thanks
 * [ALittlePatate](https://github.com/ALittlePatate) (Helped me to understand how Devour works)
 * Everyone else who contributed to the code and I couldn't list here. Thank you!
