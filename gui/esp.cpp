@@ -77,6 +77,22 @@ static void DrawBox(float x, float y, float w, float h, ImVec4 color, float thic
 	RenderLine(ImVec2(x, y + h), ImVec2(x + w, y + h), color, thickness);
 }
 
+static void DrawEntity(EspData& data, const float footOffset, const float headOffset, const float nameOffset = -0.5f, const float widthOffset = 2.f)
+{
+	Vector3 footpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), { data.Position.x, data.Position.y + footOffset, data.Position.z }, NULL);
+	Vector3 headpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), { data.Position.x, data.Position.y + headOffset, data.Position.z }, NULL);
+	Vector3 namepos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), { data.Position.x, data.Position.y + nameOffset, data.Position.z }, NULL);
+
+	if (footpos.z > 0.f)
+	{
+		float height = (headpos.y - footpos.y);
+		float width = height / widthOffset;
+
+		DrawBox(footpos.x - (width / 2), (float)app::Screen_get_height(NULL) - footpos.y - height, width, height, data.Color, 2.f);
+		RenderText(data.Name.c_str(), ImVec2(namepos.x, (float)app::Screen_get_height(NULL) - namepos.y), data.Color);
+	}
+}
+
 void Esp::Render()
 {
 	CurrentWindow = ImGui::GetCurrentWindow();
@@ -87,65 +103,36 @@ void Esp::Render()
 	synchronized(instance.m_DrawingMutex) {
 		for (auto& it : instance.m_data)
 		{
-			app::Vector3 screenPos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), it.Position, NULL);
+			app::Vector3 pos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), it.Position, NULL);
 
-			if (not IsWithinScreenBounds(screenPos))
+			if (not IsWithinScreenBounds(pos))
 				continue;
 
 			switch (it.Type)
 			{
 			case EspType::PLAYER:
-				if (not State.ShowEspPlayers) break;
-				Vector3 playerFootPos; playerFootPos.x = it.Position.x; playerFootPos.z = it.Position.z; playerFootPos.y = it.Position.y - 0.25f;
-				Vector3 playerHeadPos; playerHeadPos.x = it.Position.x; playerHeadPos.z = it.Position.z; playerHeadPos.y = it.Position.y + 1.75f;
-				Vector3 playerNamePos; playerNamePos.x = it.Position.x; playerNamePos.z = it.Position.z; playerNamePos.y = it.Position.y - 0.5f;
-
-				Vector3 w2s_footpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerFootPos, NULL);
-				Vector3 w2s_headpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerHeadPos, NULL);
-				Vector3 w2s_namepos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), playerNamePos, NULL);
-
-				if (w2s_footpos.z > 0.f)
-				{
-					float height = (w2s_headpos.y - w2s_footpos.y);
-					float widthOffset = 2.f;
-					float width = height / widthOffset;
-
-					DrawBox(w2s_footpos.x - (width / 2), (float)app::Screen_get_height(NULL) - w2s_footpos.y - height, width, height, it.Color, 2.f);
-					RenderText(it.Name.substr(8, it.Name.size() - 7).c_str(), ImVec2(w2s_namepos.x, (float)app::Screen_get_height(NULL) - w2s_namepos.y), it.Color);
-				}
+				DrawEntity(it, -0.25f, 1.75f);
 				break;
+
 			case EspType::AZAZEL:
-				if (not State.ShowEspAzazel) break;
-				Vector3 azazelFootPos; azazelFootPos.x = it.Position.x; azazelFootPos.z = it.Position.z; azazelFootPos.y = it.Position.y - 0.25f;
-				Vector3 azazelHeadPos; azazelHeadPos.x = it.Position.x; azazelHeadPos.z = it.Position.z; azazelHeadPos.y = it.Position.y + 2.f;
-				Vector3 azazelNamePos; azazelNamePos.x = it.Position.x; azazelNamePos.z = it.Position.z; azazelNamePos.y = it.Position.y - 0.5f;
-
-				Vector3 w2s_azazelfootpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), azazelFootPos, NULL);
-				Vector3 w2s_azazelheadpos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), azazelHeadPos, NULL);
-				Vector3 w2s_azazelnamepos = app::Camera_WorldToScreenPoint(app::Camera_get_main(NULL), azazelNamePos, NULL);
-
-				if (w2s_azazelfootpos.z > 0.f)
-				{
-					float height = (w2s_azazelheadpos.y - w2s_azazelfootpos.y);
-					float widthOffset = 2.f;
-					float width = height / widthOffset;
-
-					DrawBox(w2s_azazelfootpos.x - (width / 2), (float)app::Screen_get_height(NULL) - w2s_azazelfootpos.y - height, width, height, it.Color, 2.f);
-					RenderText(it.Name.c_str(), ImVec2(w2s_azazelnamepos.x, (float)app::Screen_get_height(NULL) - w2s_azazelnamepos.y), it.Color);
-				}
+				DrawEntity(it, -0.25f, 2.f);
 				break;
+
+			case EspType::CRAWLER:
+				DrawEntity(it, -0.25f, 1.5f);
+				break;
+
 			case EspType::ITEM:
-				if (State.ShowEspItems) RenderText(it.Name.substr(8).c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
-				break;
-			case EspType::KEY:
-				if (State.ShowEspKeys) RenderText(it.Name.c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
-				break;
 			case EspType::ANIMAL:
-				if (State.ShowEspAnimals) RenderText(it.Name.substr(8).c_str(), ImVec2(screenPos.x, (float)app::Screen_get_height(NULL) - screenPos.y), it.Color);
+				RenderText(it.Name.substr(8).c_str(), ImVec2(pos.x, (float)app::Screen_get_height(NULL) - pos.y), it.Color);
 				break;
 
-			default:
+			case EspType::KEY:
+				RenderText(it.Name.c_str(), ImVec2(pos.x, (float)app::Screen_get_height(NULL) - pos.y), it.Color);
+				break;
+
 			case EspType::UNKNOWN:
+			default:
 				break;
 			}
 		}

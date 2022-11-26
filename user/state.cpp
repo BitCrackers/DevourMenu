@@ -36,6 +36,7 @@ void Settings::Load() {
         JSON_TRYGET("ShowEsp", this->ShowEsp);
         JSON_TRYGET("ShowEspPlayers", this->ShowEspPlayers);
         JSON_TRYGET("ShowEspAzazel", this->ShowEspAzazel);
+        JSON_TRYGET("ShowEspCrawlers", this->ShowEspCrawlers);
         JSON_TRYGET("ShowEspItems", this->ShowEspItems);
         JSON_TRYGET("ShowEspKeys", this->ShowEspKeys);
         JSON_TRYGET("ShowEspAnimals", this->ShowEspAnimals);
@@ -63,6 +64,7 @@ void Settings::Save() {
             {"ShowEsp", this->ShowEsp},
             {"ShowEspPlayers", this->ShowEspPlayers},
             {"ShowEspAzazel", this->ShowEspAzazel},
+            {"ShowEspCrawlers", this->ShowEspCrawlers},
             {"ShowEspItems", this->ShowEspItems},
             {"ShowEspKeys", this->ShowEspKeys},
             {"ShowEspAnimals", this->ShowEspAnimals},

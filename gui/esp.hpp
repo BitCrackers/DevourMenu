@@ -10,9 +10,10 @@
 
 enum EspType
 {
-	UNKNOWN = 0,
-	PLAYER = 1,
-	AZAZEL = 2,
+	UNKNOWN = -1,
+	PLAYER = 0,
+	AZAZEL = 1,
+	CRAWLER = 2,
 	ITEM = 3,
 	KEY = 4,
 	ANIMAL = 5

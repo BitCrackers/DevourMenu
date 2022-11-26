@@ -23,11 +23,12 @@ namespace EspTab {
 			ImGui::Separator();
 			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
 
-			changed |= ImGui::Checkbox("Show Players", &State.ShowEspPlayers);
-			changed |= ImGui::Checkbox("Show Azazel", &State.ShowEspAzazel);
-			changed |= ImGui::Checkbox("Show Items", &State.ShowEspItems);
-			changed |= ImGui::Checkbox("Show Keys", &State.ShowEspKeys);
-			changed |= ImGui::Checkbox("Show Animals", &State.ShowEspAnimals);
+			changed |= ImGui::Checkbox("Players##esp", &State.ShowEspPlayers);
+			changed |= ImGui::Checkbox("Azazel##esp", &State.ShowEspAzazel);
+			changed |= ImGui::Checkbox("Crawlers##esp", &State.ShowEspCrawlers);
+			changed |= ImGui::Checkbox("Items##esp", &State.ShowEspItems);
+			changed |= ImGui::Checkbox("Keys##esp", &State.ShowEspKeys);
+			changed |= ImGui::Checkbox("Animals##esp", &State.ShowEspAnimals);
 
 			ImGui::EndTabItem();
 		}

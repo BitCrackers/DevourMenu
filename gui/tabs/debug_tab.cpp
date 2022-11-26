@@ -11,9 +11,6 @@
 #include "gui-helpers.hpp"
 
 namespace DebugTab {
-	static const char* items[]{ "SurvivalHay", "SurvivalGoat", "SurvivalRat", "SurvivalFirstAid", "SurvivalBattery", "SurvivalGasoline", "SurvivalFuse", "SurvivalRottenFood", "SurvivalBleach", };
-	static int selectedItem = 1;
-
 	void Render() {
 		if (ImGui::BeginTabItem("Debug")) {
 			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
@@ -37,17 +34,6 @@ namespace DebugTab {
 			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
 
 			ImGui::Checkbox("Log Unity Debug Messages", &State.ShowUnityLogs);
-
-			ImGui::Dummy(ImVec2(7, 7) * State.dpiScale);
-			ImGui::Separator();
-			ImGui::Dummy(ImVec2(7, 7) * State.dpiScale);
-
-			ImGui::Combo("##SpawnItems", &selectedItem, items, IM_ARRAYSIZE(items));
-			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
-			if (ImGui::Button("Spawn") && IsInGame() && GetLocalPlayer())
-			{
-				app::NolanBehaviour_StartCarry(GetLocalPlayer(), convert_to_string(std::string(items[selectedItem])), NULL);
-			}
 
 			ImGui::EndTabItem();
 		}

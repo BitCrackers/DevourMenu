@@ -25,7 +25,7 @@ void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method)
 		{
 			if (State.ShowEspPlayers && IsOnline())
 			{
-				if (convert_from_string(app::GameObject_get_tag(object, NULL)).compare("Player") == 0)
+				if (strcmp(convert_from_string(app::GameObject_get_tag(object, NULL)).c_str(), "Player") == 0)
 				{
 					DissonancePlayerTracking* component = (DissonancePlayerTracking*)app::GameObject_GetComponentByName(object, convert_to_string(std::string("DissonancePlayerTracking")), NULL);
 					if (component && not IsLocalPlayer(component))
@@ -45,7 +45,7 @@ void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method)
 
 			if (State.ShowEspAzazel)
 			{
-				if (convert_from_string(app::GameObject_get_tag(object, NULL)).compare("Azazel") == 0)
+				if (strcmp(convert_from_string(app::GameObject_get_tag(object, NULL)).c_str(), "Azazel") == 0)
 				{
 					EspData azazelData;
 					azazelData.Type = EspType::AZAZEL;
@@ -55,6 +55,22 @@ void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method)
 
 					synchronized(instance.m_DrawingMutex) {
 						instance.m_data.push_back(azazelData);
+					}
+				}
+			}
+
+			if (State.ShowEspCrawlers)
+			{
+				if (strcmp(convert_from_string(app::GameObject_get_tag(object, NULL)).c_str(), "AI") == 0)
+				{
+					EspData enemyData;
+					enemyData.Type = EspType::CRAWLER;
+					enemyData.Name = std::string("Crawler");
+					enemyData.Color = ImVec4(1.f, 0.65f, 0.f, 1.f);
+					enemyData.Position = app::Transform_get_position(app::GameObject_get_transform(object, NULL), NULL);
+
+					synchronized(instance.m_DrawingMutex) {
+						instance.m_data.push_back(enemyData);
 					}
 				}
 			}

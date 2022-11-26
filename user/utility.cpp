@@ -92,7 +92,7 @@ NolanBehaviour* GetLocalPlayer() // This doesn't seem to work properly anymore ?
 {
 	for (auto p : GetAllPlayers())
 	{
-		if (p->fields._._._._._entity->fields._entity->fields.IsOwner)
+		if (app::BoltEntity_get_IsOwner(p->fields._._._._._entity, NULL))
 			return p;
 	}
 	return nullptr;

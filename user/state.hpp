@@ -29,6 +29,7 @@ public:
     bool ShowEsp = false;
     bool ShowEspPlayers = false;
     bool ShowEspAzazel = false;
+    bool ShowEspCrawlers = false;
     bool ShowEspItems = false;
     bool ShowEspKeys = false;
     bool ShowEspAnimals = false;
