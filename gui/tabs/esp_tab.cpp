@@ -24,6 +24,7 @@ namespace EspTab {
 			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
 
 			changed |= ImGui::Checkbox("Show Players", &State.ShowEspPlayers);
+			changed |= ImGui::Checkbox("Show Azazel", &State.ShowEspAzazel);
 			changed |= ImGui::Checkbox("Show Items", &State.ShowEspItems);
 			changed |= ImGui::Checkbox("Show Keys", &State.ShowEspKeys);
 			changed |= ImGui::Checkbox("Show Animals", &State.ShowEspAnimals);

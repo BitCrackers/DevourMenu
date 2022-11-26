@@ -12,9 +12,10 @@ enum EspType
 {
 	UNKNOWN = 0,
 	PLAYER = 1,
-	ITEM = 2,
-	KEY = 3,
-	ANIMAL = 4
+	AZAZEL = 2,
+	ITEM = 3,
+	KEY = 4,
+	ANIMAL = 5
 };
 
 struct EspData

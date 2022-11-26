@@ -43,6 +43,22 @@ void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method)
 				}
 			}
 
+			if (State.ShowEspAzazel)
+			{
+				if (convert_from_string(app::GameObject_get_tag(object, NULL)).compare("Azazel") == 0)
+				{
+					EspData azazelData;
+					azazelData.Type = EspType::AZAZEL;
+					azazelData.Name = std::string("Azazel");
+					azazelData.Color = ImVec4(1.f, 0.f, 0.f, 1.f);
+					azazelData.Position = app::Transform_get_position(app::GameObject_get_transform(object, NULL), NULL);
+
+					synchronized(instance.m_DrawingMutex) {
+						instance.m_data.push_back(azazelData);
+					}
+				}
+			}
+
 			if (State.ShowEspItems)
 			{
 				auto component = app::GameObject_GetComponentByName(object, convert_to_string(std::string("SurvivalInteractable")), NULL);
