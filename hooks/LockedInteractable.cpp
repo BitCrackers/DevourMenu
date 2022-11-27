@@ -4,7 +4,7 @@
 
 bool dLockedInteractable_CanInteract(LockedInteractable* __this, GameObject* character, MethodInfo* method)
 {
-	if (State.doorsUnlocked) {
+	if (State.DoorsUnlocked) {
 		__this->fields.isLocked = false;
 		return true;
 	}

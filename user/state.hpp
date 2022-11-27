@@ -24,7 +24,7 @@ public:
 
     bool ShowUnityLogs = true;
 
-    bool doorsUnlocked = false;
+    bool DoorsUnlocked = false;
 
     bool ShowEsp = false;
     bool ShowEspPlayers = false;
@@ -33,6 +33,8 @@ public:
     bool ShowEspItems = false;
     bool ShowEspKeys = false;
     bool ShowEspAnimals = false;
+
+    bool FreezeAzazel = false;
 
     void Load();
     void Save();

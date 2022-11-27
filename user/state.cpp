@@ -40,7 +40,8 @@ void Settings::Load() {
         JSON_TRYGET("ShowEspItems", this->ShowEspItems);
         JSON_TRYGET("ShowEspKeys", this->ShowEspKeys);
         JSON_TRYGET("ShowEspAnimals", this->ShowEspAnimals);
-        JSON_TRYGET("doorsUnlocked", this->doorsUnlocked);
+        JSON_TRYGET("DoorsUnlocked", this->DoorsUnlocked);
+        JSON_TRYGET("FreezeAzazel", this->FreezeAzazel);
     } catch (...) {
         DLog.Info("Unable to load settings.json");
     }
@@ -68,7 +69,8 @@ void Settings::Save() {
             {"ShowEspItems", this->ShowEspItems},
             {"ShowEspKeys", this->ShowEspKeys},
             {"ShowEspAnimals", this->ShowEspAnimals},
-            {"doorsUnlocked", this->doorsUnlocked}
+            {"DoorsUnlocked", this->DoorsUnlocked},
+            {"FreezeAzazel", this->FreezeAzazel}
         };
 
         std::ofstream outSettings(settingsPath);

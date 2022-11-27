@@ -113,6 +113,11 @@ DO_APP_FUNC(bool, Survival_IsEndingPlaying, (Survival* __this, MethodInfo* metho
 DO_APP_FUNC(bool, Survival_IsJumpScarePlaying, (Survival* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean Survival::IsJumpScarePlaying()");
 DO_APP_FUNC(bool, Survival_StartingToPlayFailEnding, (Survival* __this, MethodInfo* method), "Assembly-CSharp, System.Boolean Survival::StartingToPlayFailEnding()");
 
+DO_APP_FUNC(void, SurvivalAzazelBehaviour_Update, (SurvivalAzazelBehaviour* __this, MethodInfo* method), "Assembly-CSharp, System.Void SurvivalAzazelBehaviour::Update()");
+DO_APP_FUNC(void, SurvivalAzazelBehaviour_OnKnockout, (SurvivalAzazelBehaviour* __this, GameObject* ai, GameObject* player, MethodInfo* method), "Assembly-CSharp, System.Void SurvivalAzazelBehaviour::OnKnockout(UnityEngine.GameObject, UnityEngine.GameObject)");
+
+DO_APP_FUNC(void, SurvivalDemonBehaviour_Update, (SurvivalDemonBehaviour* __this, MethodInfo* method), "Assembly-CSharp, System.Void SurvivalDemonBehaviour::Update()");
+
 // BOLT
 DO_APP_FUNC(void, PrefabId__ctor, (PrefabId__Boxed* __this, int32_t value, MethodInfo* method), "bolt, System.Void Photon.Bolt.PrefabId::.ctor(System.Int32)");
 DO_APP_FUNC(String*, PrefabId_ToString, (PrefabId__Boxed* __this, MethodInfo* method), "bolt, System.String Photon.Bolt.PrefabId::ToString()");
@@ -127,3 +132,7 @@ DO_APP_FUNC(Entity*, BoltEntity_get_Entity, (BoltEntity* __this, MethodInfo* met
 DO_APP_FUNC(bool, BoltEntity_get_IsAttached, (BoltEntity* __this, MethodInfo* method), "bolt, System.Boolean Photon.Bolt.BoltEntity::get_IsAttached()");
 DO_APP_FUNC(bool, BoltEntity_get_IsOwner, (BoltEntity* __this, MethodInfo* method), "bolt, System.Boolean Photon.Bolt.BoltEntity::get_IsOwner()");
 DO_APP_FUNC(bool, BoltEntity_get_IsFrozen, (BoltEntity* __this, MethodInfo* method), "bolt, System.Boolean Photon.Bolt.BoltEntity::get_IsFrozen()");
+
+// OPSIVE
+DO_APP_FUNC(float, UltimateCharacterLocomotion_get_TimeScale, (UltimateCharacterLocomotion* __this, MethodInfo* method), "Opsive.UltimateCharacterController, System.Single Opsive.UltimateCharacterController.Character.UltimateCharacterLocomotion::get_TimeScale()");
+DO_APP_FUNC(void, UltimateCharacterLocomotion_set_TimeScale, (UltimateCharacterLocomotion* __this, float value, MethodInfo* method), "Opsive.UltimateCharacterController, System.Void Opsive.UltimateCharacterController.Character.UltimateCharacterLocomotion::set_TimeScale(System.Single)");

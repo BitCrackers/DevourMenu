@@ -19,21 +19,24 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="gui\esp.cpp" />
     <ClCompile Include="gui\gui-helpers.cpp" />
     <ClCompile Include="gui\RenderCmd.cpp" />
     <ClCompile Include="gui\Renderer.cpp" />
     <ClCompile Include="gui\tabs\debug_tab.cpp" />
     <ClCompile Include="gui\tabs\esp_tab.cpp" />
+    <ClCompile Include="gui\tabs\game_tab.cpp" />
     <ClCompile Include="gui\tabs\self_tab.cpp" />
     <ClCompile Include="gui\tabs\settings_tab.cpp" />
     <ClCompile Include="hooks\AchievementHelpers.cpp" />
+    <ClCompile Include="hooks\Cursor.cpp" />
     <ClCompile Include="hooks\DirectX.cpp" />
     <ClCompile Include="hooks\LockedInteractable.cpp" />
     <ClCompile Include="hooks\Menu_2.cpp" />
     <ClCompile Include="hooks\NolanBehaviour.cpp" />
     <ClCompile Include="hooks\OptionsHelpers.cpp" />
+    <ClCompile Include="hooks\SurvivalAzazelBehaviour.cpp" />
+    <ClCompile Include="hooks\SurvivalDemonBehaviour.cpp" />
     <ClCompile Include="hooks\SurvivalLobbyController.cpp" />
     <ClCompile Include="hooks\UnityDebug.cpp" />
     <ClCompile Include="user\keybinds.cpp">
@@ -252,6 +255,7 @@
     <ClInclude Include="gui\Renderer.hpp" />
     <ClInclude Include="gui\tabs\debug_tab.h" />
     <ClInclude Include="gui\tabs\esp_tab.h" />
+    <ClInclude Include="gui\tabs\game_tab.h" />
     <ClInclude Include="gui\tabs\self_tab.h" />
     <ClInclude Include="gui\tabs\settings_tab.h" />
     <ClInclude Include="hooks\DirectX.h" />

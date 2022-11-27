@@ -88,6 +88,7 @@ void DetourInitilization() {
 	HOOKFUNC(Cursor_set_visible);
 	HOOKFUNC(Cursor_get_lockState);
 	HOOKFUNC(Cursor_set_lockState);
+	HOOKFUNC(SurvivalAzazelBehaviour_Update);
 
 	if (!HookFunction(&(PVOID&)oPresent, dPresent, "D3D_PRESENT_FUNCTION")) return;
 
@@ -121,6 +122,7 @@ void DetourUninitialization()
 	UNHOOKFUNC(Cursor_set_visible);
 	UNHOOKFUNC(Cursor_get_lockState);
 	UNHOOKFUNC(Cursor_set_lockState);
+	UNHOOKFUNC(SurvivalAzazelBehaviour_Update);
 
 	if (DetourDetach(&(PVOID&)oPresent, dPresent) != 0) return;
 

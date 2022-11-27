@@ -32,3 +32,6 @@ bool dCursor_get_visible(MethodInfo* method);
 void dCursor_set_visible(bool value, MethodInfo* method);
 CursorLockMode__Enum dCursor_get_lockState(MethodInfo* method);
 void dCursor_set_lockState(CursorLockMode__Enum value, MethodInfo* method);
+
+void dSurvivalAzazelBehaviour_Update(SurvivalAzazelBehaviour* __this, MethodInfo* method);
+void dSurvivalDemonBehaviour_Update(SurvivalDemonBehaviour* __this, MethodInfo* method);

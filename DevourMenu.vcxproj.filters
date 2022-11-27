@@ -124,7 +124,16 @@
     <ClCompile Include="hooks\NolanBehaviour.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="Cursor.cpp">
+    <ClCompile Include="hooks\Cursor.cpp">
+      <Filter>hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\tabs\game_tab.cpp">
+      <Filter>gui\tabs</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks\SurvivalDemonBehaviour.cpp">
+      <Filter>hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks\SurvivalAzazelBehaviour.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
   </ItemGroup>
@@ -254,6 +263,9 @@
     </ClInclude>
     <ClInclude Include="gui\esp.hpp">
       <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\tabs\game_tab.h">
+      <Filter>gui\tabs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

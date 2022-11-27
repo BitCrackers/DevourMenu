@@ -29,7 +29,7 @@ namespace SelfTab {
 		if (ImGui::BeginTabItem("Self")) {
 			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
 
-			ImGui::Checkbox("All Doors Unlocked", &State.doorsUnlocked);
+			ImGui::Checkbox("All Doors Unlocked", &State.DoorsUnlocked);
 
 			ImGui::Dummy(ImVec2(7, 7) * State.dpiScale);
 			ImGui::Separator();
