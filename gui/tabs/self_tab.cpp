@@ -7,7 +7,19 @@
 #include "utility.h"
 
 namespace SelfTab {
-	std::vector<const char*> items = { "Hay", "Goat", "Rat", "FirstAid", "Battery", "Gasoline", "Fuse", "RottenFood", "Bleach" };
+	std::vector<std::pair<const char*, const char*>> items
+	{
+		{"Hay", "SurvivalHay"},
+		{"Goat", "SurvivalGoat"},
+		{"Rat", "SurvivalRat"},
+		{"FirstAid", "SurvivalFirstAid"},
+		{"Battery", "SurvivalBattery"},
+		{"Gasoline", "SurvivalGasoline"},
+		{"MatchBox", "Matchbox-3"},
+		{"Fuse", "SurvivalFuse"},
+		{"RottenFood", "SurvivalRottenFood"},
+		{"Bleach", "SurvivalBleach"},
+	};
 	static int selectedItem = 1;
 
 	void Render() {
@@ -23,11 +35,11 @@ namespace SelfTab {
 			ImGui::Separator();
 			ImGui::Dummy(ImVec2(7, 7) * State.dpiScale);
 
-			CustomListBoxInt("", &selectedItem, items, 75.f);
+			CustomListBoxPair("", &selectedItem, items, 75.f);
 			ImGui::SameLine();
 			if (ImGui::Button("Spawn") && IsInGame() && GetLocalPlayer())
 			{
-				app::NolanBehaviour_StartCarry(GetLocalPlayer(), convert_to_string("Survival" + std::string(+items[selectedItem])), NULL);
+				app::NolanBehaviour_StartCarry(GetLocalPlayer(), convert_to_string(std::string(items.at(selectedItem).second)), NULL);
 			}
 
 			ImGui::EndTabItem();

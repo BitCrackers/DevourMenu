@@ -9,6 +9,51 @@
 
 using namespace ImGui;
 
+bool CustomListBoxPair(const char* label, int* value, const std::vector<std::pair<const char*, const char*>> list, float width, ImGuiComboFlags flags) {
+	auto comboLabel = "##" + std::string(label);
+	auto leftArrow = "##" + std::string(label) + "Left";
+	auto rightArrow = "##" + std::string(label) + "Right";
+
+	ImGuiStyle& style = GetStyle();
+	float spacing = style.ItemInnerSpacing.x;
+	PushItemWidth(width);
+	bool response = BeginCombo(comboLabel.c_str(), (*value >= 0 ? list.at(*value).first : nullptr), ImGuiComboFlags_NoArrowButton | flags);
+	if (response) {
+		response = false;
+		for (size_t i = 0; i < list.size(); i++) {
+			bool is_selected = (*value == i);
+			if (Selectable(list.at(i).first, is_selected)) {
+				*value = (int)i;
+				response = true;
+			}
+			if (is_selected)
+				SetItemDefaultFocus();
+		}
+		EndCombo();
+	}
+
+	PopItemWidth();
+	SameLine(0, spacing);
+
+	const bool LeftResponse = ArrowButton(leftArrow.c_str(), ImGuiDir_Left);
+	if (LeftResponse) {
+		*value -= 1;
+		if (*value < 0) *value = int(list.size() - 1);
+		return LeftResponse;
+	}
+	SameLine(0, spacing);
+	const bool RightResponse = ArrowButton(rightArrow.c_str(), ImGuiDir_Right);
+	if (RightResponse) {
+		*value += 1;
+		if (*value > (int)(list.size() - 1)) *value = 0;
+		return RightResponse;
+	}
+	SameLine(0, spacing);
+	ImGui::Text(label);
+
+	return response;
+}
+
 bool CustomListBoxInt(const char* label, int* value, const std::vector<const char*> list, float width, ImGuiComboFlags flags) {
 	auto comboLabel = "##" + std::string(label);
 	auto leftArrow = "##" + std::string(label) + "Left";
