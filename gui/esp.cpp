@@ -118,7 +118,7 @@ void Esp::Render()
 				DrawEntity(it, -0.25f, 2.f);
 				break;
 
-			case EspType::CRAWLER:
+			case EspType::DEMON:
 				DrawEntity(it, -0.25f, 1.5f);
 				break;
 

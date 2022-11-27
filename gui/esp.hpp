@@ -13,7 +13,7 @@ enum EspType
 	UNKNOWN = -1,
 	PLAYER = 0,
 	AZAZEL = 1,
-	CRAWLER = 2,
+	DEMON = 2,
 	ITEM = 3,
 	KEY = 4,
 	ANIMAL = 5

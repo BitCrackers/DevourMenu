@@ -25,27 +25,25 @@ void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method)
 		{
 			if (State.ShowEspPlayers && IsOnline())
 			{
-				if (strcmp(convert_from_string(app::GameObject_get_tag(object, NULL)).c_str(), "Player") == 0)
+				auto component = (DissonancePlayerTracking*)app::GameObject_GetComponentByName(object, convert_to_string(std::string("DissonancePlayerTracking")), NULL);
+				if (component && not IsLocalPlayer(component))
 				{
-					DissonancePlayerTracking* component = (DissonancePlayerTracking*)app::GameObject_GetComponentByName(object, convert_to_string(std::string("DissonancePlayerTracking")), NULL);
-					if (component && not IsLocalPlayer(component))
-					{
-						EspData playerData;
-						playerData.Type = EspType::PLAYER;
-						playerData.Name = convert_from_string(Object_1_get_name((Object_1*)object, NULL));
-						playerData.Color = ImVec4(1.f, 1.f, 1.f, 1.f);
-						playerData.Position = app::Transform_get_position(app::GameObject_get_transform(object, NULL), NULL);
+					EspData playerData;
+					playerData.Type = EspType::PLAYER;
+					playerData.Name = convert_from_string(Object_1_get_name((Object_1*)object, NULL));
+					playerData.Color = ImVec4(1.f, 1.f, 1.f, 1.f);
+					playerData.Position = app::Transform_get_position(app::GameObject_get_transform(object, NULL), NULL);
 
-						synchronized(instance.m_DrawingMutex) {
-							instance.m_data.push_back(playerData);
-						}
+					synchronized(instance.m_DrawingMutex) {
+						instance.m_data.push_back(playerData);
 					}
 				}
 			}
 
 			if (State.ShowEspAzazel)
 			{
-				if (strcmp(convert_from_string(app::GameObject_get_tag(object, NULL)).c_str(), "Azazel") == 0)
+				auto component = (SurvivalAzazelBehaviour*)app::GameObject_GetComponentByName(object, convert_to_string(std::string("SurvivalAzazelBehaviour")), NULL);
+				if (component)
 				{
 					EspData azazelData;
 					azazelData.Type = EspType::AZAZEL;
@@ -59,18 +57,19 @@ void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method)
 				}
 			}
 
-			if (State.ShowEspCrawlers)
+			if (State.ShowEspDemons)
 			{
-				if (strcmp(convert_from_string(app::GameObject_get_tag(object, NULL)).c_str(), "AI") == 0)
+				auto component = (SurvivalDemonBehaviour*)app::GameObject_GetComponentByName(object, convert_to_string(std::string("SurvivalDemonBehaviour")), NULL);
+				if (component)
 				{
-					EspData enemyData;
-					enemyData.Type = EspType::CRAWLER;
-					enemyData.Name = std::string("Crawler");
-					enemyData.Color = ImVec4(1.f, 0.65f, 0.f, 1.f);
-					enemyData.Position = app::Transform_get_position(app::GameObject_get_transform(object, NULL), NULL);
+					EspData demonData;
+					demonData.Type = EspType::DEMON;
+					demonData.Name = std::string("Demon");
+					demonData.Color = ImVec4(1.f, 0.65f, 0.f, 1.f);
+					demonData.Position = app::Transform_get_position(app::GameObject_get_transform(object, NULL), NULL);
 
 					synchronized(instance.m_DrawingMutex) {
-						instance.m_data.push_back(enemyData);
+						instance.m_data.push_back(demonData);
 					}
 				}
 			}

@@ -25,7 +25,7 @@ namespace EspTab {
 
 			changed |= ImGui::Checkbox("Players##esp", &State.ShowEspPlayers);
 			changed |= ImGui::Checkbox("Azazel##esp", &State.ShowEspAzazel);
-			changed |= ImGui::Checkbox("Crawlers##esp", &State.ShowEspCrawlers);
+			changed |= ImGui::Checkbox("Demons##esp", &State.ShowEspDemons);
 			changed |= ImGui::Checkbox("Items##esp", &State.ShowEspItems);
 			changed |= ImGui::Checkbox("Keys##esp", &State.ShowEspKeys);
 			changed |= ImGui::Checkbox("Animals##esp", &State.ShowEspAnimals);
