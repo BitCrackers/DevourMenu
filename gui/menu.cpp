@@ -26,7 +26,7 @@ namespace Menu {
 
 		if(!firstRender)
 			SettingsTab::Render();
-		GameTab::Render();
+		HostTab::Render();
 		SelfTab::Render();
 		EspTab::Render();
 #ifdef _DEBUG
