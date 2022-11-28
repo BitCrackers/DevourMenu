@@ -127,7 +127,7 @@
     <ClCompile Include="hooks\Cursor.cpp">
       <Filter>hooks</Filter>
     </ClCompile>
-    <ClCompile Include="gui\tabs\game_tab.cpp">
+    <ClCompile Include="gui\tabs\host_tab.cpp">
       <Filter>gui\tabs</Filter>
     </ClCompile>
     <ClCompile Include="hooks\SurvivalDemonBehaviour.cpp">
@@ -264,7 +264,7 @@
     <ClInclude Include="gui\esp.hpp">
       <Filter>gui</Filter>
     </ClInclude>
-    <ClInclude Include="gui\tabs\game_tab.h">
+    <ClInclude Include="gui\tabs\host_tab.h">
       <Filter>gui\tabs</Filter>
     </ClInclude>
   </ItemGroup>

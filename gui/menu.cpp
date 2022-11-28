@@ -1,7 +1,7 @@
 #include "pch-il2cpp.h"
 #include "menu.hpp"
 #include "imgui/imgui.h"
-#include "tabs/game_tab.h"
+#include "tabs/host_tab.h"
 #include "tabs/self_tab.h"
 #include "tabs/esp_tab.h"
 #include "tabs/settings_tab.h"

@@ -34,4 +34,4 @@ CursorLockMode__Enum dCursor_get_lockState(MethodInfo* method);
 void dCursor_set_lockState(CursorLockMode__Enum value, MethodInfo* method);
 
 void dSurvivalAzazelBehaviour_Update(SurvivalAzazelBehaviour* __this, MethodInfo* method);
-void dSurvivalDemonBehaviour_Update(SurvivalDemonBehaviour* __this, MethodInfo* method);
+void dSurvivalAzazelBehaviour_OnKnockout(SurvivalAzazelBehaviour* __this, GameObject* ai, GameObject* player, MethodInfo* method);

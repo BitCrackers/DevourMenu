@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
 
-namespace GameTab {
+namespace HostTab {
 	void Render();
 }

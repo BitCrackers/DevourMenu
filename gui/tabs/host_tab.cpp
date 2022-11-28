@@ -6,12 +6,12 @@
 #include "state.hpp"
 #include "utility.h"
 
-namespace GameTab {
+namespace HostTab {
 	void Render() {
-		if (not IsInGame())
+		if (not IsInGame() || not IsHost())
 			return;
 
-		if (ImGui::BeginTabItem("Game")) {
+		if (ImGui::BeginTabItem("Host")) {
 			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
 
 			ImGui::Checkbox("Freeze Azazel", &State.FreezeAzazel);
