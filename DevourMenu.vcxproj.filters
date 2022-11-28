@@ -130,9 +130,6 @@
     <ClCompile Include="gui\tabs\host_tab.cpp">
       <Filter>gui\tabs</Filter>
     </ClCompile>
-    <ClCompile Include="hooks\SurvivalDemonBehaviour.cpp">
-      <Filter>hooks</Filter>
-    </ClCompile>
     <ClCompile Include="hooks\SurvivalAzazelBehaviour.cpp">
       <Filter>hooks</Filter>
     </ClCompile>

@@ -36,7 +36,6 @@
     <ClCompile Include="hooks\NolanBehaviour.cpp" />
     <ClCompile Include="hooks\OptionsHelpers.cpp" />
     <ClCompile Include="hooks\SurvivalAzazelBehaviour.cpp" />
-    <ClCompile Include="hooks\SurvivalDemonBehaviour.cpp" />
     <ClCompile Include="hooks\SurvivalLobbyController.cpp" />
     <ClCompile Include="hooks\UnityDebug.cpp" />
     <ClCompile Include="user\keybinds.cpp">
