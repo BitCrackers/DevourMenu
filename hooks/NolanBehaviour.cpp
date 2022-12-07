@@ -7,6 +7,18 @@
 static int espTimerLimit = 25, espTimer = 0;
 void dNolanBehaviour_FixedUpdate(NolanBehaviour* __this, MethodInfo* method)
 {
+
+	// only execute this ingame for local player
+	if (IsInGame() && IsLocalPlayer(__this))
+	{
+		// Apply Sprint Speed
+		if (__this->fields.speedChangeAbility)
+		{
+			__this->fields.speedChangeAbility->fields.m_SpeedChangeMultiplier = State.SprintSpeed;
+			__this->fields.speedChangeAbility->fields.m_MaxSpeedChangeValue = State.SprintSpeed;
+		}
+	}
+
 	// collect all the game data ingame
 	if (IsInGame()
 		&& not IsSequencePlaying()

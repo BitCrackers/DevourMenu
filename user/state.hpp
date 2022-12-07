@@ -25,6 +25,7 @@ public:
     bool ShowUnityLogs = true;
 
     bool DoorsUnlocked = false;
+    float SprintSpeed = 2.f;
 
     bool ShowEsp = false;
     bool ShowEspPlayers = false;

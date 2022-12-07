@@ -151,7 +151,7 @@ bool CustomListBoxIntMultiple(const char* label, std::vector<std::pair<const cha
 	return response;
 }
 
-bool SteppedSliderFloat(const char* label, float* v, float v_min, float v_max, float v_step, const char* format = "%.3f", ImGuiSliderFlags flags = 0) {
+bool SteppedSliderFloat(const char* label, float* v, float v_min, float v_max, float v_step, const char* format, ImGuiSliderFlags flags) {
 	char text_buf[64] = {};
 	ImFormatString(text_buf, IM_ARRAYSIZE(text_buf), format, *v);
 

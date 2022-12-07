@@ -31,6 +31,10 @@ namespace SelfTab {
 
 			ImGui::Checkbox("All Doors Unlocked", &State.DoorsUnlocked);
 
+			ImGui::Dummy(ImVec2(4, 4) * State.dpiScale);
+
+			SteppedSliderFloat("Sprint Speed", &State.SprintSpeed, 2.f, 10.f, 0.5f, "%.2fx", 0);
+
 			ImGui::Dummy(ImVec2(7, 7) * State.dpiScale);
 			ImGui::Separator();
 			ImGui::Dummy(ImVec2(7, 7) * State.dpiScale);
@@ -41,7 +45,6 @@ namespace SelfTab {
 			{
 				app::NolanBehaviour_StartCarry(GetLocalPlayer(), convert_to_string(std::string(items.at(selectedItem).second)), NULL);
 			}
-
 			ImGui::EndTabItem();
 		}
 	}

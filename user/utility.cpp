@@ -88,7 +88,7 @@ bool Object_1_IsNull(app::Object_1* obj)
 	return !Object_1_IsNotNull(obj);
 }
 
-NolanBehaviour* GetLocalPlayer() // This doesn't seem to work properly anymore ?!
+NolanBehaviour* GetLocalPlayer()
 {
 	for (auto p : GetAllPlayers())
 	{
@@ -141,6 +141,18 @@ bool IsHost()
 }
 
 bool IsLocalPlayer(DissonancePlayerTracking* player)
+{
+	auto boltEntity = app::EntityBehaviour_get_entity((EntityBehaviour*)player, NULL);
+
+	if (not boltEntity
+		|| not app::BoltEntity_get_IsAttached(boltEntity, NULL)
+		|| not app::BoltEntity_get_IsOwner(boltEntity, NULL))
+		return false;
+
+	return true;
+}
+
+bool IsLocalPlayer(NolanBehaviour* player)
 {
 	auto boltEntity = app::EntityBehaviour_get_entity((EntityBehaviour*)player, NULL);
 
